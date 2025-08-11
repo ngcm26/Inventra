@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Inventra • Delete Purchase Order</title><link rel="stylesheet" href="styles.css"/></head>
+<body><div class="app">
+
+  <aside class="sidebar">
+    <div class="brand"><img src="assets/logo.svg" alt="logo"/><span class="brand-name">INVENTRA</span></div>
+    <nav class="nav"><a href="index.html" class=""><span>🏠</span>Dashboard</a><a href="#" class=""><span>🛒</span>Sale</a><a href="index.html" class=""><span>📦</span>Inventory</a><a href="stock-orders.html" class="active"><span>📄</span>Stock Orders</a><a href="#" class=""><span>🚚</span>Shipment</a><a href="#" class=""><span>💳</span>Payment</a><a href="#" class=""><span>📨</span>AI Powered Inbox</a><a href="#" class=""><span>⚙️</span>Settings</a></nav>
+    <div class="bottom">
+      <div class="user"><span class="avatar"></span><div><div style="font-weight:700">John Doe</div><div style="font-size:12px;color:#94A3B8">john@company.com</div></div></div>
+      <div>▾</div>
+    </div>
+  </aside>
+
+<main class="content">
+<h1 style="margin:0 0 14px 0">View Purchase Order</h1>
+<div class="form" style="max-width:780px">
+  <div class="row"><div>Product</div><div><input class="input" value="Skid Pallets"/></div></div>
+  <div class="row"><div>Serial Code</div><div><input class="input" value="7537"/></div></div>
+  <div class="row"><div>Amount</div><div><input class="input" value="$4,350"/></div></div>
+  <div class="actions"><button class="btn small" data-open="delete">Delete Purchase</button></div>
+</div>
+</main></div>
+<div class="modal-backdrop" id="deleteModal">
+  <div class="modal">
+    <h3>DELETE PURCHASE</h3>
+    <p>Are you sure you want to <strong style="color:#EF4444">delete</strong> this purchase?</p>
+    <div class="actions"><button class="btn ghost small" data-close>Cancel</button><button class="btn small" data-close>Delete</button></div>
+  </div>
+</div>
+<script src="app.js"></script></body></html>
