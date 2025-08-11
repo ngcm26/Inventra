@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shipping Overview - Inventra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../stylesheet/navbar.css" />
+  <link rel="stylesheet" href="../stylesheet/shipping_overview.css" />
+</head>
+<body>
+  <!-- Sidebar Navigation -->
+  <div class="sidebar">
+    <div class="logo-section">
+      <div class="logo">
+        <img src="../assets/INVENTRA.svg" alt="INVENTRA Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="logo-text" style="display: none;">INVENTRA</div>
+      </div>
+    </div>
+
+    <nav class="nav-menu">
+      <ul>
+        <li class="nav-item" data-page="dashboard">
+          <a href="dashboard.html">
+            <i class="fas fa-th-large"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item" data-page="sale">
+          <a href="sale.html">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Sale</span>
+          </a>
+        </li>
+        <li class="nav-item" data-page="inventory">
+          <a href="inventory.html">
+            <i class="fas fa-boxes"></i>
+            <span>Inventory</span>
+          </a>
+        </li>
+        <li class="nav-item" data-page="orders">
+          <a href="orders.html">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m691-150 139-138-42-42-97 95-39-39-42 43 81 81ZM240-600h480v-80H240v80ZM720-40q-83 0-141.5-58.5T520-240q0-83 58.5-141.5T720-440q83 0 141.5 58.5T920-240q0 83-58.5 141.5T720-40ZM120-80v-680q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v267q-19-9-39-15t-41-9v-243H200v562h243q5 31 15.5 59T486-86l-6 6-60-60-60 60-60-60-60 60-60-60-60 60Zm120-200h203q3-21 9-41t15-39H240v80Zm0-160h284q38-37 88.5-58.5T720-520H240v80Zm-40 242v-562 562Z"/></svg>
+              <span>Orders</span>
+          </a>
+        </li>
+        <li class="nav-item" data-page="shipment">
+          <a href="shipping_overview.html">
+            <i class="fas fa-truck"></i>
+            <span>Shipment</span>
+          </a>
+        </li>
+        <li class="nav-item" data-page="payment">
+          <a href="payment.html">
+            <i class="fas fa-credit-card"></i>
+            <span>Payment</span>
+          </a>
+        </li>
+        <li class="nav-item" data-page="inbox">
+          <a href="inbox.html">
+            <i class="fas fa-envelope"></i>
+            <span>AI Powered Inbox</span>
+          </a>
+        </li>
+        <li class="nav-item" data-page="settings">
+          <a href="settings.html">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="user-profile">
+      <div class="user-avatar"><span>J</span></div>
+      <div class="user-info">
+        <span class="user-name">John Doe</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="page-header">
+      <div class="header-left">
+        <div>
+          <h1>Shipping Overview</h1>
+          <div class="header-description">Monitor current shipments, KPIs, and recent activity</div>
+        </div>
+      </div>
+      <div></div>
+    </div>
+
+    <!-- Quick Action Buttons -->
+    <div class="quick-actions">
+      <a class="action-btn active" href="shipping_overview.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+        All Shipments
+      </a>
+      <a class="action-btn" href="update_shipment.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        Update Shipment
+      </a>
+      <a class="action-btn" href="live_tracking_shipment.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        Live Tracking
+      </a>
+      <a class="action-btn" href="generate_receipt.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11zm-5.5-7c.83 0 1.5-.67 1.5-1.5S13.33 11 12.5 11s-1.5.67-1.5 1.5.67 1.5 1.5 1.5zm2.5 4H8.5c-.28 0-.5-.22-.5-.5s.22-.5.5-.5H15c.28 0 .5.22.5.5s-.22.5-.5.5z"/></svg>
+        Generate Receipt
+      </a>
+      <a class="action-btn" href="new_shipment_manual.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/></svg>
+        Add New Shipment
+      </a>
+    </div>
+
+    <div class="overview-grid">
+      <div class="kpi-card">
+        <div class="kpi-icon"><i class="fas fa-shipping-fast"></i></div>
+        <div class="kpi-content">
+          <h3>Active Shipments</h3>
+          <div class="kpi-value">24</div>
+        </div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon"><i class="fas fa-check-circle"></i></div>
+        <div class="kpi-content">
+          <h3>On-time Rate</h3>
+          <div class="kpi-value">87%</div>
+        </div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon"><i class="fas fa-exclamation-triangle"></i></div>
+        <div class="kpi-content">
+          <h3>Delays</h3>
+          <div class="kpi-value">3</div>
+        </div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon"><i class="fas fa-box"></i></div>
+        <div class="kpi-content">
+          <h3>Pallets in Transit</h3>
+          <div class="kpi-value">156</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-block">
+      <div class="card-header">
+        <h3>Recent Shipping Activity</h3>
+      </div>
+      <div class="table-container">
+        <table class="order-table">
+          <thead>
+            <tr>
+              <th>Shipment ID</th>
+              <th>Type</th>
+              <th>Route</th>
+              <th>Product</th>
+              <th>Quantity</th>
+              <th>ETA</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>MY-2024-142</td>
+              <td>Incoming</td>
+              <td>Malaysia → Singapore</td>
+              <td>Pinewood Raw Material</td>
+              <td>2.4 Tons</td>
+              <td>15 Jun 2025</td>
+              <td><span class="status-pill status-processing">In Transit</span></td>
+            </tr>
+            <tr>
+              <td>VN-2024-089</td>
+              <td>Incoming</td>
+              <td>Vietnam → Singapore → Malaysia</td>
+              <td>Pinewood Raw Material</td>
+              <td>30 Units</td>
+              <td>30 May 2025</td>
+              <td><span class="status-pill status-delayed">Delayed</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/navbar.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      try { localStorage.setItem('currentPage', 'shipment'); } catch (e) {}
+    });
+  </script>
+  <script src="../js/animations.js"></script>
+</body>
+</html>
+
+

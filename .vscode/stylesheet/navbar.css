@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+/* Global font: DM Sans across the app */
+html, body, button, input, select, textarea {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+}
+
+/* Standardize quick action buttons across shipping pages */
+.quick-actions {
+    display: flex;
+    gap: 24px;
+    margin: 0 0 24px 0;
+}
+.quick-actions .action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: #fff;
+    color: #334155;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.15s ease;
+}
+.quick-actions .action-btn svg { width: 18px; height: 18px; fill: currentColor; }
+.quick-actions .action-btn:hover { background: #f8fafc; border-color: #cbd5e1; }
+.quick-actions .action-btn.active { background: #3F7AB0; color: #fff; border-color: #3F7AB0; }
+
+/* Shared page subtitle under H1 */
+.header-description {
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #ffffff;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 260px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    border-right: 1px solid #e2e8f0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo Section */
+.logo-section {
+    padding: 1px 16px 0px 16px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    height: 100px;
+    width: auto;
+    object-fit: cover;
+    object-position: center;
+    max-width: 200px;
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: 700;
+    color: #3F7AB0;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Navigation Menu */
+.nav-menu {
+    flex: 1;
+    padding: 16px 0;
+}
+
+.nav-menu ul {
+    list-style: none;
+}
+
+.nav-item {
+    margin-bottom: 2px;
+}
+
+.nav-item a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    text-decoration: none;
+    color: #3b3b3b;
+    transition: all 0.15s ease;
+    border-radius: 6px;
+    margin: 0 12px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.nav-item a:hover {
+    background-color: rgba(63, 122, 176, 0.1);
+    color: #3F7AB0;
+}
+
+.nav-item.active a {
+    background-color: rgba(63, 122, 176, 0.5);
+    color: #3b3b3b;
+    font-weight: 600;
+}
+
+.nav-item a i {
+    width: 18px;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* Special styling for specific icons */
+.nav-item a .fa-th-large {
+    font-size: 14px;
+}
+
+/* User Profile Section */
+.user-profile {
+    padding: 16px;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    margin: 0 12px 12px 12px;
+    border-radius: 6px;
+}
+
+.user-profile:hover {
+    background-color: rgba(63, 122, 176, 0.1);
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    background: #3F7AB0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.user-info {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1e293b;
+}
+
+.user-info i {
+    color: #94a3b8;
+    font-size: 12px;
+    transition: transform 0.15s ease;
+}
+
+.user-profile:hover .user-info i {
+    transform: rotate(180deg);
+}

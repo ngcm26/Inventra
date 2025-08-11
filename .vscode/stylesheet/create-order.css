@@ -1,0 +1,211 @@
+:root {
+  --brand: #3F7AB0;
+  --ink: #1e293b;
+  --muted: #64748b;
+  --panel: #ffffff;
+  --bg: #F2F7FD;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+body {
+  background: var(--bg);
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.main-content {
+  background: var(--bg);
+  padding: 32px;
+  flex: 1;
+  margin-left: 260px; /* Account for sidebar width */
+  min-height: 100vh;
+}
+
+.page {
+  display: flex;
+  gap: 24px;
+}
+
+.left-rail {
+  width: 320px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.card .card-hd {
+  padding: 18px 20px;
+  border-bottom: 1px solid #e2e8f0;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.card .card-bd {
+  padding: 18px 20px;
+  color: var(--muted);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--brand);
+  color: #fff;
+}
+
+.btn-secondary {
+  background: #fff;
+  color: var(--brand);
+  border-color: var(--brand);
+}
+
+.btn-ghost {
+  background: #fff;
+  color: var(--ink);
+  border-color: #e2e8f0;
+}
+
+.btn + .btn {
+  margin-left: 8px;
+}
+
+.section {
+  flex: 1;
+}
+
+.form {
+  background: var(--panel);
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.field input,
+.field textarea {
+  padding: 12px 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #f8fafc;
+  font-size: 14px;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.items {
+  margin-top: 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.items table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.items thead th {
+  background: rgba(63, 122, 176, 0.15);
+  color: #1f2937;
+  text-align: left;
+  padding: 12px;
+  font-size: 13px;
+}
+
+.items tbody td {
+  padding: 10px 12px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.items input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.row-actions {
+  text-align: right;
+}
+
+.totals {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 16px;
+  color: #334155;
+}
+
+.hint {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.toolbar .title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+

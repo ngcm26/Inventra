@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INVENTRA - Payment Reports</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../stylesheet/navbar.css" />
+  <link rel="stylesheet" href="../stylesheet/payment_report.css" />
+  <link rel="icon" href="../assets/INVENTRA.svg" />
+</head>
+<body>
+  <!-- Sidebar Navigation -->
+  <div class="sidebar">
+    <div class="logo-section">
+      <div class="logo">
+        <img src="../assets/INVENTRA.svg" alt="INVENTRA Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="logo-text" style="display: none;">INVENTRA</div>
+      </div>
+    </div>
+
+    <nav class="nav-menu">
+      <ul>
+        <li class="nav-item" data-page="dashboard"><a href="dashboard.html"><i class="fas fa-th-large"></i><span>Dashboard</span></a></li>
+        <li class="nav-item" data-page="sale"><a href="sale.html"><i class="fas fa-shopping-cart"></i><span>Sale</span></a></li>
+        <li class="nav-item" data-page="inventory"><a href="inventory.html"><i class="fas fa-boxes"></i><span>Inventory</span></a></li>
+        <li class="nav-item" data-page="orders"><a href="orders.html">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="currentColor"><path d="m691-150 139-138-42-42-97 95-39-39-42 43 81 81ZM240-600h480v-80H240v80ZM720-40q-83 0-141.5-58.5T520-240q0-83 58.5-141.5T720-440q83 0 141.5 58.5T920-240q0 83-58.5 141.5T720-40ZM120-80v-680q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v267q-19-9-39-15t-41-9v-243H200v562h243q5 31 15.5 59T486-86l-6 6-60-60-60 60-60-60-60 60-60-60-60 60Zm120-200h203q3-21 9-41t15-39H240v80Zm0-160h284q38-37 88.5-58.5T720-520H240v80Zm-40 242v-562 562Z"/></svg>
+          <span>Orders</span></a></li>
+        <li class="nav-item" data-page="shipment"><a href="shipping_overview.html"><i class="fas fa-truck"></i><span>Shipment</span></a></li>
+        <li class="nav-item" data-page="payment"><a href="payment.html"><i class="fas fa-credit-card"></i><span>Payment</span></a></li>
+        <li class="nav-item" data-page="inbox"><a href="inbox.html"><i class="fas fa-envelope"></i><span>AI Powered Inbox</span></a></li>
+        <li class="nav-item" data-page="settings"><a href="settings.html"><i class="fas fa-cog"></i><span>Settings</span></a></li>
+      </ul>
+    </nav>
+
+    <div class="user-profile">
+      <div class="user-avatar"><span>J</span></div>
+      <div class="user-info"><span class="user-name">John Doe</span><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="page-header">
+      <div>
+        <h1>Payment Reports</h1>
+        <div class="header-description">Financial analytics and payment performance insights</div>
+      </div>
+      <div></div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions">
+      <a class="action-btn" href="payment.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+        All Payments
+      </a>
+      <a class="action-btn" href="update_payment.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        Update Payment
+      </a>
+      <a class="action-btn active" href="payment_report.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+        Payment Reports
+      </a>
+      <a class="action-btn" href="payment_invoice.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11zm-5.5-7c.83 0 1.5-.67 1.5-1.5S13.33 11 12.5 11s-1.5.67-1.5 1.5.67 1.5 1.5 1.5zm2.5 4H8.5c-.28 0-.5-.22-.5-.5s.22-.5.5-.5H15c.28 0 .5.22.5.5s-.22.5-.5.5z"/></svg>
+        Generate Invoice
+      </a>
+      <a class="action-btn" href="add_payment.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"/></svg>
+        Add New Payment
+      </a>
+    </div>
+
+    <!-- Filters -->
+    <div class="filters-section">
+      <div class="filters-title"><i class="fas fa-filter"></i> Report Filters</div>
+      <div class="filters-grid">
+        <div class="filter-group">
+          <label class="filter-label" for="timePeriod">Time Period</label>
+          <select class="filter-select" id="timePeriod">
+            <option value="30">Last 30 Days</option>
+            <option value="60">Last 60 Days</option>
+            <option value="90">Last 90 Days</option>
+            <option value="180">Last 6 Months</option>
+            <option value="365">Last Year</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label" for="paymentType">Payment Type</label>
+          <select class="filter-select" id="paymentType">
+            <option value="all">All Types</option>
+            <option value="supplier">Supplier Payments</option>
+            <option value="customer">Customer Receivables</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label" for="statusFilter">Status</label>
+          <select class="filter-select" id="statusFilter">
+            <option value="all">All Status</option>
+            <option value="paid">Paid</option>
+            <option value="pending">Pending</option>
+            <option value="overdue">Overdue</option>
+            <option value="received">Received</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label" for="partnerFilter">Supplier/Customer</label>
+          <select class="filter-select" id="partnerFilter">
+            <option value="all">All Partners</option>
+            <option value="vietnam">Vietnam Timber Co</option>
+            <option value="malaysia">Malaysia Express</option>
+            <option value="australia">Australia Timber</option>
+            <option value="singapore">Singapore Logistics</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Analytics -->
+    <div class="analytics-grid">
+      <div class="analytics-card">
+        <div class="card-header">
+          <div class="card-icon cash-flow"><i class="fas fa-sack-dollar"></i></div>
+          <div>
+            <div class="card-title">Cash Flow Analysis</div>
+            <div class="card-subtitle">Track incoming and outgoing payments with trend analysis</div>
+          </div>
+        </div>
+        <div class="metrics-row">
+          <div class="metric-value" id="cashFlowAmount">$284K</div>
+          <div class="metric-change positive" id="cashFlowChange">+12%</div>
+        </div>
+        <div class="metric-label" id="cashFlowPeriod">This Month vs Last Month</div>
+        <div style="margin-top: 12px;">
+          <div class="metric-label">On Time: <span class="rate-excellent" id="onTimeRate">87%</span></div>
+        </div>
+      </div>
+
+      <div class="analytics-card">
+        <div class="card-header">
+          <div class="card-icon overdue"><i class="fas fa-triangle-exclamation"></i></div>
+          <div>
+            <div class="card-title">Overdue Payments</div>
+            <div class="card-subtitle">Monitor and manage payments past their due dates</div>
+          </div>
+        </div>
+        <div class="metrics-row">
+          <div class="metric-value" id="overdueCount">5</div>
+          <div class="metric-change negative">Overdue</div>
+        </div>
+        <div class="metrics-row" style="margin-top: 8px;">
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div>
+              <div class="metric-value" style="font-size: 18px;" id="overdueAmount">$68K</div>
+              <div class="metric-label">Total Amount</div>
+            </div>
+            <div>
+              <div class="metric-value" style="font-size: 18px;" id="avgDelay">8 days</div>
+              <div class="metric-label">Avg Delay</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="analytics-card">
+        <div class="card-header">
+          <div class="card-icon supplier"><i class="fas fa-building"></i></div>
+          <div>
+            <div class="card-title">Supplier Analysis</div>
+            <div class="card-subtitle">Payment performance by supplier with ranking</div>
+          </div>
+        </div>
+        <div class="metrics-row">
+          <div class="metric-value" id="activeSuppliers">12</div>
+          <div class="metric-label">Active Suppliers</div>
+        </div>
+        <div class="supplier-info">
+          <div class="supplier-name" id="topSupplier">Vietnam</div>
+          <div class="supplier-rate rate-excellent" id="topSupplierRate">92%</div>
+        </div>
+        <div class="metric-label">Top Supplier - Payment Rate</div>
+      </div>
+
+      <div class="analytics-card">
+        <div class="card-header">
+          <div class="card-icon automation"><i class="fas fa-robot"></i></div>
+          <div>
+            <div class="card-title">Automation Efficiency</div>
+            <div class="card-subtitle">Auto-processing performance and manual vs automated payments</div>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 12px;">
+          <div>
+            <div class="metric-value" style="font-size: 20px;" id="autoProcessed">78%</div>
+            <div class="metric-label">Auto-Processed</div>
+          </div>
+          <div>
+            <div class="metric-value" style="font-size: 20px;" id="timeSaved">15 Hrs</div>
+            <div class="metric-label">Time Saved</div>
+          </div>
+          <div>
+            <div class="metric-value" style="font-size: 20px;" id="accuracy">98%</div>
+            <div class="metric-label">Accuracy</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Summary Table -->
+    <div class="summary-section">
+      <div class="summary-header">
+        <h2 class="summary-title">Payment Summary by Category</h2>
+        <button class="export-btn" id="exportBtn"><i class="fas fa-file-export"></i> Export Table</button>
+      </div>
+      <div class="table-container">
+        <table class="summary-table" id="summaryTable">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Total Payments</th>
+              <th>Total Amount</th>
+              <th>Avg Amount</th>
+              <th>On-Time Rate</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Raw Materials</td>
+              <td>23</td>
+              <td class="amount">$156,750</td>
+              <td class="avg-amount">$6,815</td>
+              <td class="rate-good">89%</td>
+              <td><span class="status-indicator status-good"></span>Good</td>
+            </tr>
+            <tr>
+              <td>Shipping & Logistics</td>
+              <td>18</td>
+              <td class="amount">$45,200</td>
+              <td class="avg-amount">$2,511</td>
+              <td class="rate-excellent">94%</td>
+              <td><span class="status-indicator status-excellent"></span>Excellent</td>
+            </tr>
+            <tr>
+              <td>Customer Receivables</td>
+              <td>31</td>
+              <td class="amount">$287,600</td>
+              <td class="avg-amount">$9,277</td>
+              <td class="rate-attention">76%</td>
+              <td><span class="status-indicator status-attention"></span>Needs Attention</td>
+            </tr>
+            <tr>
+              <td>Overdue Payments</td>
+              <td>5</td>
+              <td class="amount">$68,150</td>
+              <td class="avg-amount">$13,630</td>
+              <td class="rate-critical">0%</td>
+              <td><span class="status-indicator status-critical"></span>Critical</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/navbar.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/payment_report.js"></script>
+</body>
+</html>
+
+

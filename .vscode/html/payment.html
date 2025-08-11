@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payment Management - Inventra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../stylesheet/navbar.css" />
+  <link rel="stylesheet" href="../stylesheet/payment.css" />
+  <link rel="icon" href="../assets/INVENTRA.svg" />
+  <meta name="description" content="Manage payments, review statuses, and generate receipts/invoices in Inventra." />
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo-section">
+      <div class="logo">
+        <img src="../assets/INVENTRA.svg" alt="INVENTRA Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="logo-text" style="display: none;">INVENTRA</div>
+      </div>
+    </div>
+
+    <nav class="nav-menu">
+      <ul>
+        <li class="nav-item" data-page="dashboard"><a href="dashboard.html"><i class="fas fa-th-large"></i><span>Dashboard</span></a></li>
+        <li class="nav-item" data-page="sale"><a href="sale.html"><i class="fas fa-shopping-cart"></i><span>Sale</span></a></li>
+        <li class="nav-item" data-page="inventory"><a href="inventory.html"><i class="fas fa-boxes"></i><span>Inventory</span></a></li>
+        <li class="nav-item" data-page="orders"><a href="orders.html">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="currentColor"><path d="m691-150 139-138-42-42-97 95-39-39-42 43 81 81ZM240-600h480v-80H240v80ZM720-40q-83 0-141.5-58.5T520-240q0-83 58.5-141.5T720-440q83 0 141.5 58.5T920-240q0 83-58.5 141.5T720-40ZM120-80v-680q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v267q-19-9-39-15t-41-9v-243H200v562h243q5 31 15.5 59T486-86l-6 6-60-60-60 60-60-60-60 60-60-60-60 60Zm120-200h203q3-21 9-41t15-39H240v80Zm0-160h284q38-37 88.5-58.5T720-520H240v80Zm-40 242v-562 562Z"/></svg>
+          <span>Orders</span></a></li>
+        <li class="nav-item" data-page="shipment"><a href="shipping_overview.html"><i class="fas fa-truck"></i><span>Shipment</span></a></li>
+        <li class="nav-item" data-page="payment"><a href="payment.html"><i class="fas fa-credit-card"></i><span>Payment</span></a></li>
+        <li class="nav-item" data-page="inbox"><a href="inbox.html"><i class="fas fa-envelope"></i><span>AI Powered Inbox</span></a></li>
+        <li class="nav-item" data-page="settings"><a href="settings.html"><i class="fas fa-cog"></i><span>Settings</span></a></li>
+      </ul>
+    </nav>
+
+    <div class="user-profile">
+      <div class="user-avatar"><span>J</span></div>
+      <div class="user-info"><span class="user-name">John Doe</span><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="page-header">
+      <div>
+        <h1>Payment Management</h1>
+        <div class="header-description">Overview of all pending and completed payments</div>
+      </div>
+      <div></div>
+    </div>
+
+    <div class="quick-actions">
+      <a class="action-btn active" href="payment.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+        All Payments
+      </a>
+      <a class="action-btn" href="update_payment.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        Update Payment
+      </a>
+      <a class="action-btn" href="payment_report.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+        Payment Reports
+      </a>
+      <a class="action-btn" href="payment_invoice.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11zm-5.5-7c.83 0 1.5-.67 1.5-1.5S13.33 11 12.5 11s-1.5.67-1.5 1.5.67 1.5 1.5 1.5zm2.5 4H8.5c-.28 0-.5-.22-.5-.5s.22-.5.5-.5H15c.28 0 .5.22.5.5s-.22.5-.5.5z"/></svg>
+        Generate Invoice
+      </a>
+      <a class="action-btn" href="add_payment.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"/></svg>
+        Add New Payment
+      </a>
+    </div>
+
+    <div class="alert-banner">
+      <div class="alert-icon">⚠️</div>
+      <div class="alert-text">
+        <span class="alert-title">5 Payments Overdue</span>
+        <span class="alert-sub">Supplier payment for Vietnam shipment #VN-2024-089 is 12 days overdue</span>
+      </div>
+      <span class="alert-badge">Auto-Updated</span>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <div class="section-title">Invoice Processing Status</div>
+      </div>
+      <div class="section-content">
+        <div class="status-grid">
+          <div class="status-item">
+            <div class="status-number">8</div>
+            <div class="status-label">Invoices processed today</div>
+          </div>
+          <div class="status-item">
+            <div class="status-number">12</div>
+            <div class="status-label">Payments auto-created</div>
+          </div>
+          <div class="status-item">
+            <div class="status-number">2</div>
+            <div class="status-label">Awaiting review</div>
+          </div>
+          <div class="status-item">
+            <div class="status-accuracy">98%</div>
+            <div class="status-sublabel">Processing accuracy</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kpi-cards">
+      <div class="kpi-card">
+        <div class="kpi-icon">
+          <i class="fas fa-sack-dollar"></i>
+        </div>
+        <div class="kpi-content">
+          <h3>Outstanding payables</h3>
+          <p class="kpi-value">$248,500</p>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-icon">
+          <i class="fas fa-hourglass-half"></i>
+        </div>
+        <div class="kpi-content">
+          <h3>Pending receivables</h3>
+          <p class="kpi-value">$156,780</p>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-icon">
+          <i class="fas fa-triangle-exclamation"></i>
+        </div>
+        <div class="kpi-content">
+          <h3>Overdue payments</h3>
+          <p class="kpi-value">5</p>
+        </div>
+      </div>
+
+      <div class="kpi-card">
+        <div class="kpi-icon">
+          <i class="fas fa-file-invoice"></i>
+        </div>
+        <div class="kpi-content">
+          <h3>Active payment records</h3>
+          <p class="kpi-value">23</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-block">
+      <div class="card-header">
+        <div class="card-title">All Payments</div>
+        <div class="card-actions">
+          <button class="btn btn-secondary">Export</button>
+          <button class="btn btn-secondary">Filter</button>
+        </div>
+      </div>
+
+      <div class="search-filters">
+        <input type="text" class="search-input" placeholder="Search Payments..." id="searchInput">
+        <select class="filter-select" id="typeFilter">
+          <option value="">All Types</option>
+          <option value="Supplier">Supplier</option>
+          <option value="Customer">Customer</option>
+        </select>
+        <select class="filter-select" id="statusFilter">
+          <option value="">All Status</option>
+          <option value="Paid">Paid</option>
+          <option value="Pending">Pending</option>
+          <option value="Overdue">Overdue</option>
+          <option value="Received">Received</option>
+        </select>
+        <select class="filter-select" id="dateFilter">
+          <option value="">Last 30 Days</option>
+          <option value="60">Last 60 Days</option>
+          <option value="90">Last 90 Days</option>
+        </select>
+      </div>
+
+      <div class="table-container">
+        <table class="payment-table" id="paymentTable">
+          <thead>
+            <tr>
+              <th>Payment ID</th>
+              <th>Type</th>
+              <th>Reference → Supplier/Customer</th>
+              <th>Description</th>
+              <th>Amount</th>
+              <th>Due Date</th>
+              <th>Payment Date</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-type="Supplier" data-status="Paid">
+              <td>PAY-2024-045</td>
+              <td><span class="type-badge">Supplier</span></td>
+              <td>MY-2024-045 → Malaysia Express</td>
+              <td>Assembled Pallets - 50 Units</td>
+              <td class="amount negative">-$12,500</td>
+              <td>24 May 2025</td>
+              <td>28 May 2025</td>
+              <td><span class="status-badge status-paid">Paid</span></td>
+              <td>
+                <div class="action-dropdown">
+                  <button class="action-btn-sm" onclick="viewReceipt('PAY-2024-045', 'Assembled Pallets - 50 Units', '$12,500', '28 May 2025', 'Malaysia Express')">View Receipt</button>
+                </div>
+              </td>
+            </tr>
+            <tr data-type="Supplier" data-status="Overdue">
+              <td>PAY-2024-089</td>
+              <td><span class="type-badge">Supplier</span></td>
+              <td>VN-2024-089 → Vietnam Timber Co</td>
+              <td>Pinewood Raw Material - 30 Units</td>
+              <td class="amount negative">-$18,750</td>
+              <td>15 May 2025</td>
+              <td>-</td>
+              <td><span class="status-badge status-overdue">12 Days Overdue</span></td>
+              <td>
+                <div class="action-dropdown">
+                  <button class="action-btn-sm" onclick="payNow('PAY-2024-089', 'Vietnam Timber Co', '$18,750')">Pay Now</button>
+                </div>
+              </td>
+            </tr>
+            <tr data-type="Supplier" data-status="Pending">
+              <td>PAY-2024-156</td>
+              <td><span class="type-badge">Supplier</span></td>
+              <td>AU-2024-156 → Australia Timber</td>
+              <td>LVL Material - 18 Tons</td>
+              <td class="amount negative">-$22,400</td>
+              <td>25 May 2025</td>
+              <td>-</td>
+              <td><span class="status-badge status-pending">Pending</span></td>
+              <td>
+                <div class="action-dropdown">
+                  <button class="action-btn-sm" onclick="payNow('PAY-2024-156', 'Australia Timber', '$22,400')">Process</button>
+                </div>
+              </td>
+            </tr>
+            <tr data-type="Customer" data-status="Received">
+              <td>REC-2024-023</td>
+              <td><span class="type-badge">Customer</span></td>
+              <td>ORD-2024-023 → Singapore Logistics</td>
+              <td>Pinewood Logs - 3.2 Tons</td>
+              <td class="amount positive">+$35,600</td>
+              <td>12 June 2025</td>
+              <td>25 June 2025</td>
+              <td><span class="status-badge status-received">Received</span></td>
+              <td>
+                <div class="action-dropdown">
+                  <button class="action-btn-sm" onclick="viewReceipt('REC-2024-023', 'Pinewood Logs - 3.2 Tons', '$35,600', '25 June 2025', 'Singapore Logistics')">View Invoice</button>
+                </div>
+              </td>
+            </tr>
+            <tr data-type="Supplier" data-status="Pending">
+              <td>PAY-2024-142</td>
+              <td><span class="type-badge">Supplier</span></td>
+              <td>MY-2024-142 → Malaysia Express</td>
+              <td>Pinewood Raw Material - 2.4 Tons</td>
+              <td class="amount negative">-$14,200</td>
+              <td>10 June 2025</td>
+              <td>-</td>
+              <td><span class="status-badge status-pending">Pending</span></td>
+              <td>
+                <div class="action-dropdown">
+                  <button class="action-btn-sm" onclick="payNow('PAY-2024-142', 'Malaysia Express', '$14,200')">Process</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Receipt Modal -->
+  <div id="receiptModal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <h2 class="modal-title">Payment Receipt</h2>
+        <button class="close" onclick="closeModal('receiptModal')" aria-label="Close">&times;</button>
+      </div>
+      <div class="receipt-content">
+        <div class="receipt-item"><span class="receipt-label">Payment ID:</span><span class="receipt-value" id="receiptPaymentId"></span></div>
+        <div class="receipt-item"><span class="receipt-label">Supplier/Customer:</span><span class="receipt-value" id="receiptCompany"></span></div>
+        <div class="receipt-item"><span class="receipt-label">Description:</span><span class="receipt-value" id="receiptDescription"></span></div>
+        <div class="receipt-item"><span class="receipt-label">Amount:</span><span class="receipt-value" id="receiptAmount"></span></div>
+        <div class="receipt-item"><span class="receipt-label">Payment Date:</span><span class="receipt-value" id="receiptDate"></span></div>
+        <div class="receipt-item"><span class="receipt-label">Status:</span><span class="receipt-value">✅ Completed</span></div>
+        <div class="receipt-item"><span class="receipt-label">Transaction ID:</span><span class="receipt-value" id="receiptTransactionId"></span></div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-primary" onclick="printReceipt()">🖨️ Print Receipt</button>
+        <button class="btn btn-cancel" onclick="closeModal('receiptModal')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment Confirmation Modal -->
+  <div id="paymentModal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <h2 class="modal-title">Confirm Payment</h2>
+        <button class="close" onclick="closeModal('paymentModal')" aria-label="Close">&times;</button>
+      </div>
+      <div class="confirmation-icon">💳</div>
+      <div class="confirmation-message">You are about to process a payment. Please review the details below:</div>
+      <div class="payment-details">
+        <div class="receipt-item"><span class="receipt-label">Payment ID:</span><span class="receipt-value" id="paymentId"></span></div>
+        <div class="receipt-item"><span class="receipt-label">Supplier:</span><span class="receipt-value" id="paymentCompany"></span></div>
+        <div class="receipt-item"><span class="receipt-label">Amount:</span><span class="receipt-value" id="paymentAmount"></span></div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-confirm" onclick="confirmPayment()">✅ Confirm Payment</button>
+        <button class="btn btn-cancel" onclick="closeModal('paymentModal')">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <h2 class="modal-title">Payment Successful</h2>
+        <button class="close" onclick="closeModal('successModal')" aria-label="Close">&times;</button>
+      </div>
+      <div class="confirmation-icon" style="color:#059669;">✅</div>
+      <div class="confirmation-message">Payment has been processed successfully!<br><strong>Transaction ID: <span id="successTransactionId"></span></strong></div>
+      <div class="modal-actions">
+        <button class="btn btn-primary" onclick="closeModal('successModal')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/navbar.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/payment.js"></script>
+</body>
+</html>
+
+

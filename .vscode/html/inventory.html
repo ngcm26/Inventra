@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INVENTRA - Inventory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../stylesheet/navbar.css">
+    <link rel="stylesheet" href="../stylesheet/inventory.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <!-- Logo Section -->
+        <div class="logo-section">
+            <div class="logo">
+                <!-- Use INVENTRA.svg if available, otherwise show text logo -->
+                <img src="../assets/INVENTRA.svg" alt="INVENTRA Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                <div class="logo-text" style="display: none;">INVENTRA</div>
+            </div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="nav-menu">
+            <ul>
+                <li class="nav-item" data-page="dashboard">
+                    <a href="dashboard.html">
+                        <i class="fas fa-th-large"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="sale">
+                    <a href="sale.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Sale</span>
+                    </a>
+                </li>
+                <li class="nav-item active" data-page="inventory">
+                    <a href="inventory.html">
+                        <i class="fas fa-boxes"></i>
+                        <span>Inventory</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="orders">
+                    <a href="orders.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m691-150 139-138-42-42-97 95-39-39-42 43 81 81ZM240-600h480v-80H240v80ZM720-40q-83 0-141.5-58.5T520-240q0-83 58.5-141.5T720-440q83 0 141.5 58.5T920-240q0 83-58.5 141.5T720-40ZM120-80v-680q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v267q-19-9-39-15t-41-9v-243H200v562h243q5 31 15.5 59T486-86l-6 6-60-60-60 60-60-60-60 60-60-60-60 60Zm120-200h203q3-21 9-41t15-39H240v80Zm0-160h284q38-37 88.5-58.5T720-520H240v80Zm-40 242v-562 562Z"/></svg>
+                        <span>Orders</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="shipment">
+                    <a href="shippping_overview.html">
+                        <i class="fas fa-truck"></i>
+                        <span>Shipment</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="payment">
+                    <a href="payment.html">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Payment</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="inbox">
+                    <a href="inbox.html">
+                        <i class="fas fa-envelope"></i>
+                        <span>AI Powered Inbox</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="settings">
+                    <a href="settings.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- User Profile Section -->
+        <div class="user-profile">
+            <div class="user-avatar">
+                <span>J</span>
+            </div>
+            <div class="user-info">
+                <span class="user-name">John Doe</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <div class="page-header">
+            <div>
+                <h1>Inventory</h1>
+                <div class="header-description">Track stock levels, locations, and restocks</div>
+            </div>
+            <div></div>
+        </div>
+        
+        <!-- KPI Cards -->
+        <div class="kpi-cards">
+            <div class="kpi-card">
+                <div class="kpi-icon">
+                    <i class="fas fa-boxes"></i>
+                </div>
+                <div class="kpi-content">
+                    <h3>Total Items in Stock</h3>
+                    <p class="kpi-value">234</p>
+                </div>
+            </div>
+            
+            <div class="kpi-card">
+                <div class="kpi-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="kpi-content">
+                    <h3>Low Stock Items</h3>
+                    <p class="kpi-value">15</p>
+                </div>
+            </div>
+            
+            <div class="kpi-card">
+                <div class="kpi-icon">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+                <div class="kpi-content">
+                    <h3>Auto-Reorders Active</h3>
+                    <p class="kpi-value">5</p>
+                </div>
+            </div>
+            
+            <div class="kpi-card">
+                <div class="kpi-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="kpi-content">
+                    <h3>Live Alerts</h3>
+                    <div class="alert-preview">
+                        <p class="alert-text">Critical Stock: Euro Pallets</p>
+                        <p class="alert-details">45 units remaining • Auto-reorder triggered • ETA: 3 days</p>
+                    </div>
+                    <a href="#" class="see-all-link">See All Notifications</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inventory Management Table -->
+        <div class="inventory-management-card">
+            <div class="card-header">
+                <h3>Inventory Overview</h3>
+                <div class="header-actions">
+                    <div class="search-container">
+                        <input type="text" placeholder="Search Items..." class="search-input">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                    <button class="add-item-btn">
+                        <i class="fas fa-plus"></i>
+                        Add Item +
+                    </button>
+                </div>
+            </div>
+            <div class="table-container">
+                <table class="inventory-table">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>SKU</th>
+                            <th>Stock Level</th>
+                            <th>Location</th>
+                            <th>Supplier</th>
+                            <th>Last Restock</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-sku="EP-1200-800-HT" data-current-stock="45" data-max-stock="200" data-critical-threshold="80" data-auto-reorder="true">
+                            <td>
+                                <div class="item-info">
+                                    <strong>Euro Pallet 1200x800mm</strong>
+                                    <span class="item-details">Heat treated, Standard grade</span>
+                                </div>
+                            </td>
+                            <td>EP-1200-800-HT</td>
+                            <td>
+                                <div class="stock-level">
+                                    <span class="stock-count critical">45</span>/200
+                                    <span class="auto-reorder-status" data-status="reordered">Re-ordered</span>
+                                </div>
+                            </td>
+                            <td>Jurong A1</td>
+                            <td>Malaysian Timber Co.</td>
+                            <td>Jul 28, 2025</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn toggle-auto-reorder" data-sku="EP-1200-800-HT">Turn Off Auto-Reorder</button>
+                                    <button class="action-btn edit-item-btn" data-item-id="EP-1200-800-HT">Edit</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr data-sku="CP-1100-1100-OAK" data-current-stock="78" data-max-stock="150" data-critical-threshold="60" data-auto-reorder="false">
+                            <td>
+                                <div class="item-info">
+                                    <strong>Custom Pallet 1100x1100mm</strong>
+                                    <span class="item-details">ISPM-15 certified, Oak</span>
+                                </div>
+                            </td>
+                            <td>CP-1100-1100-OAK</td>
+                            <td>
+                                <div class="stock-level">
+                                    <span class="stock-count warning">78</span>/150
+                                    <span class="auto-reorder-status" data-status="off">Auto-Reorder: Off</span>
+                                </div>
+                            </td>
+                            <td>Tuas B2</td>
+                            <td>Indonesian Wood Ltd.</td>
+                            <td>Aug 1, 2025</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn toggle-auto-reorder" data-sku="CP-1100-1100-OAK">Turn On Auto-Reorder</button>
+                                    <button class="action-btn edit-item-btn" data-item-id="CP-1100-1100-OAK">Edit</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr data-sku="PP-1200-1000-EX" data-current-stock="320" data-max-stock="400" data-critical-threshold="120" data-auto-reorder="false">
+                            <td>
+                                <div class="item-info">
+                                    <strong>Pine Pallet 1200x1000mm</strong>
+                                    <span class="item-details">Standard, Export grade</span>
+                                </div>
+                            </td>
+                            <td>PP-1200-1000-EX</td>
+                            <td>
+                                <div class="stock-level">
+                                    <span class="stock-count good">320</span>/400
+                                    <span class="auto-reorder-status" data-status="off">Auto-Reorder: Off</span>
+                                </div>
+                            </td>
+                            <td>Jurong C1</td>
+                            <td>Vietnam Pallet Supply</td>
+                            <td>Aug 2, 2025</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn toggle-auto-reorder" data-sku="PP-1200-1000-EX">Turn On Auto-Reorder</button>
+                                    <button class="action-btn edit-item-btn" data-item-id="PP-1200-1000-EX">Edit</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr data-sku="HW-MIX-HD" data-current-stock="12" data-max-stock="100" data-critical-threshold="30" data-auto-reorder="true">
+                            <td>
+                                <div class="item-info">
+                                    <strong>Hardwood Mix Pallet</strong>
+                                    <span class="item-details">Mixed hardwood, Heavy duty</span>
+                                </div>
+                            </td>
+                            <td>HW-MIX-HD</td>
+                            <td>
+                                <div class="stock-level">
+                                    <span class="stock-count critical">12</span>/100
+                                    <span class="auto-reorder-status" data-status="reordered">Re-ordered</span>
+                                </div>
+                            </td>
+                            <td>Tuas A3</td>
+                            <td>Thai Hardwood Export</td>
+                            <td>Jul 25, 2025</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn toggle-auto-reorder" data-sku="HW-MIX-HD">Turn Off Auto-Reorder</button>
+                                    <button class="action-btn edit-item-btn" data-item-id="HW-MIX-HD">Edit</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Item Modal -->
+    <div id="addItemModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Item</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <form id="addItemForm" class="modal-form">
+                <div class="form-group">
+                    <label for="itemName">Item Name</label>
+                    <input type="text" id="itemName" name="itemName" required>
+                </div>
+                <div class="form-group">
+                    <label for="itemDetails">Item Details</label>
+                    <input type="text" id="itemDetails" name="itemDetails" placeholder="e.g., Heat treated, Standard grade">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="sku">SKU</label>
+                        <input type="text" id="sku" name="sku" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="maxStock">Max Stock Level</label>
+                        <input type="number" id="maxStock" name="maxStock" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" name="location" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="supplier">Supplier</label>
+                        <input type="text" id="supplier" name="supplier" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="autoReorder">Auto-Reorder</label>
+                    <select id="autoReorder" name="autoReorder">
+                        <option value="true">Enabled</option>
+                        <option value="false">Disabled</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary cancel-btn">Cancel</button>
+                    <button type="submit" class="btn-primary">Add Item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Item Modal -->
+    <div id="editItemModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Item</h2>
+                <button class="close-btn">&times;</button>
+            </div>
+            <form id="editItemForm" class="modal-form">
+                <input type="hidden" id="editItemId" name="itemId">
+                <div class="form-group">
+                    <label for="editItemName">Item Name</label>
+                    <input type="text" id="editItemName" name="itemName" required>
+                </div>
+                <div class="form-group">
+                    <label for="editItemDetails">Item Details</label>
+                    <input type="text" id="editItemDetails" name="itemDetails">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editSku">SKU</label>
+                        <input type="text" id="editSku" name="sku" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editCurrentStock">Current Stock</label>
+                        <input type="number" id="editCurrentStock" name="currentStock" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editMaxStock">Max Stock Level</label>
+                        <input type="number" id="editMaxStock" name="maxStock" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editLocation">Location</label>
+                        <input type="text" id="editLocation" name="location" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editSupplier">Supplier</label>
+                        <input type="text" id="editSupplier" name="supplier" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editAutoReorder">Auto-Reorder</label>
+                        <select id="editAutoReorder" name="autoReorder">
+                            <option value="true">Enabled</option>
+                            <option value="false">Disabled</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary cancel-btn">Cancel</button>
+                    <button type="submit" class="btn-primary">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../js/navbar.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/inventory.js"></script>
+</body>
+</html>

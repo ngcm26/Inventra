@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INVENTRA - Orders</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../stylesheet/navbar.css">
+    <link rel="stylesheet" href="../stylesheet/orders.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar">
+        <!-- Logo Section -->
+        <div class="logo-section">
+            <div class="logo">
+                <!-- Use INVENTRA.svg if available, otherwise show text logo -->
+                <img src="../assets/INVENTRA.svg" alt="INVENTRA Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                <div class="logo-text" style="display: none;">INVENTRA</div>
+            </div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="nav-menu">
+            <ul>
+                <li class="nav-item" data-page="dashboard">
+                    <a href="dashboard.html">
+                        <i class="fas fa-th-large"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="sale">
+                    <a href="sale.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Sale</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="inventory">
+                    <a href="inventory.html">
+                        <i class="fas fa-boxes"></i>
+                        <span>Inventory</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="orders">
+                    <a href="orders.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m691-150 139-138-42-42-97 95-39-39-42 43 81 81ZM240-600h480v-80H240v80ZM720-40q-83 0-141.5-58.5T520-240q0-83 58.5-141.5T720-440q83 0 141.5 58.5T920-240q0 83-58.5 141.5T720-40ZM120-80v-680q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v267q-19-9-39-15t-41-9v-243H200v562h243q5 31 15.5 59T486-86l-6 6-60-60-60 60-60-60-60 60-60-60-60 60Zm120-200h203q3-21 9-41t15-39H240v80Zm0-160h284q38-37 88.5-58.5T720-520H240v80Zm-40 242v-562 562Z"/></svg>
+                        <span>Orders</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="shipment">
+                    <a href="shipping_overview.html">
+                        <i class="fas fa-truck"></i>
+                        <span>Shipment</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="payment">
+                    <a href="payment.html">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Payment</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="inbox">
+                    <a href="inbox.html">
+                        <i class="fas fa-envelope"></i>
+                        <span>AI Powered Inbox</span>
+                    </a>
+                </li>
+                <li class="nav-item" data-page="settings">
+                    <a href="settings.html">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- User Profile Section -->
+        <div class="user-profile">
+            <div class="user-avatar">
+                <span>J</span>
+            </div>
+            <div class="user-info">
+                <span class="user-name">John Doe</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <div class="page-header">
+            <div>
+                <h1>Orders</h1>
+                <div class="header-description">Create, track, and manage customer orders</div>
+            </div>
+            <div class="toolbar">
+                <button id="new-order" class="btn btn-primary">
+                    <i class="fa-solid fa-plus"></i> New Order
+                </button>
+                <a class="btn btn-ghost" href="inbox.html">
+                    <i class="fa-solid fa-inbox"></i> AI Inbox
+                </a>
+            </div>
+        </div>
+
+        <div class="card" id="orders-stats-card">
+            <div class="card-header">
+                <div class="card-title"><strong>Summary (Last 30 days)</strong></div>
+            </div>
+            <div class="table-container">
+                <div class="orders-stats">
+                    <div class="stat"><span>Total Orders:</span> <strong id="stat-total-orders">0</strong></div>
+                    <div class="stat"><span>Revenue:</span> <strong id="stat-revenue">$0.00</strong></div>
+                    <div class="stat"><span>New:</span> <strong id="stat-new">0</strong></div>
+                    <div class="stat"><span>Processing:</span> <strong id="stat-processing">0</strong></div>
+                    <div class="stat"><span>Shipped:</span> <strong id="stat-shipped">0</strong></div>
+                    <div class="stat"><span>Delivered:</span> <strong id="stat-delivered">0</strong></div>
+                    <div class="stat"><span>Cancelled:</span> <strong id="stat-cancelled">0</strong></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <strong>Order List</strong>
+                </div>
+                <div class="search-container">
+                    <input id="search-orders" placeholder="Search orders..." class="search-input" />
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+            </div>
+            <div class="table-container">
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Created</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th>Source</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="orders-tbody"></tbody>
+                </table>
+            </div>
+            <div class="pagination-bar">
+                <button class="page-btn" id="prev-page" disabled><i class="fas fa-chevron-left"></i></button>
+                <div id="page-numbers" class="page-numbers"></div>
+                <button class="page-btn" id="next-page" disabled><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/navbar.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/orders.js"></script>
+  <script src="../js/animations.js"></script>
+</body>
+</html>

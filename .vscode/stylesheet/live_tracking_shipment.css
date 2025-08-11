@@ -1,0 +1,362 @@
+/*
+  Live Tracking Page Styles
+  - Consistent structure and grouping with other shipment pages
+*/
+
+/* Variables */
+:root {
+  --brand: #3F7AB0;
+  --ink: #1e293b;
+  --muted: #64748b;
+  --panel: #ffffff;
+  --bg: #F2F7FD;
+  --border: #e2e8f0;
+  --hover: #f8fafc;
+}
+
+/* Base layout */
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  display: flex;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.main-content {
+  background: var(--bg);
+  padding: 32px;
+  flex: 1;
+  margin-left: 260px;
+  min-height: 100vh;
+}
+
+/* Header */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding: 24px;
+  border-radius: 12px;
+  border: none;
+  background: transparent;
+}
+
+.page-header h1 {
+  color: var(--ink);
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.header-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  color: #334155;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.header-actions .btn svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.header-actions .btn:hover {
+  background: var(--hover);
+  border-color: #cbd5e1;
+}
+
+/* Quick actions */
+.quick-actions {
+  display: flex;
+  gap: 24px;
+  margin: 0 0 24px 0;
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+  color: #334155;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.15s ease;
+}
+
+.action-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.action-btn:hover {
+  background: var(--hover);
+  border-color: #cbd5e1;
+}
+
+.action-btn.active {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+}
+
+/* Sections */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.section {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.section-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-title {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.section-content {
+  padding: 20px 24px;
+}
+
+/* Map */
+.map-container {
+  position: relative;
+  height: 320px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #e2e8f0;
+}
+
+#map-canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.map-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #cbd5e1;
+  border-top-color: #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.map-controls {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.map-btn {
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  color: #334155;
+  font-weight: 800;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.map-btn:hover {
+  background: var(--hover);
+}
+
+.eta-badge {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 8px 12px;
+  background: #0ea5e9;
+  color: #fff;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.update-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.update-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.15);
+}
+
+/* Details */
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 16px;
+}
+
+.detail-item {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.detail-label {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.detail-value {
+  color: #1e293b;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Updates */
+.updates-list {
+  display: grid;
+  gap: 12px;
+}
+
+.update-item {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.update-icon i { font-size: 12px; }
+.update-icon.warning { color: #f59e0b; }
+.update-icon.info { color: #3b82f6; }
+.update-icon.success { color: #10b981; }
+
+.update-time { color: #64748b; font-size: 12px; }
+.update-text { color: #334155; font-size: 13px; }
+
+/* Milestones */
+.milestone-content { display: grid; gap: 16px; }
+
+.expected-arrival {
+  padding: 12px;
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 10px;
+}
+
+.expected-arrival .arrival-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #0c4a6e;
+  font-weight: 700;
+}
+
+.arrival-time { color: #1e293b; font-weight: 600; }
+.arrival-location { color: #0c4a6e; font-size: 12px; }
+
+.progress-section { display: grid; gap: 8px; }
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 75%;
+  height: 100%;
+  background: linear-gradient(90deg, #60a5fa, #3b82f6, #2563eb);
+  border-radius: 999px;
+}
+
+.milestone-list { display: grid; gap: 12px; }
+
+.milestone-item {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.milestone-status {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.milestone-status.completed { background: #ecfdf5; color: #059669; border: 1px solid #bbf7d0; }
+.milestone-status.current { background: #3b82f6; color: #fff; border: 1px solid #2563eb; }
+.milestone-status.pending { background: #f1f5f9; color: #64748b; border: 1px solid #e2e8f0; }
+
+/* Animations */
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .content-grid { grid-template-columns: 1fr; }
+}
+
+

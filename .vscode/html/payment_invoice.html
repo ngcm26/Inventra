@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INVENTRA - Generate Invoice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../stylesheet/navbar.css" />
+  <link rel="stylesheet" href="../stylesheet/payment_invoice.css" />
+  <link rel="icon" href="../assets/INVENTRA.svg" />
+  <meta name="description" content="Create professional invoices for customer orders in Inventra." />
+</head>
+<body>
+  <!-- Sidebar Navigation -->
+  <div class="sidebar">
+    <div class="logo-section">
+      <div class="logo">
+        <img src="../assets/INVENTRA.svg" alt="INVENTRA Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="logo-text" style="display: none;">INVENTRA</div>
+      </div>
+    </div>
+
+    <nav class="nav-menu">
+      <ul>
+        <li class="nav-item" data-page="dashboard"><a href="dashboard.html"><i class="fas fa-th-large"></i><span>Dashboard</span></a></li>
+        <li class="nav-item" data-page="sale"><a href="sale.html"><i class="fas fa-shopping-cart"></i><span>Sale</span></a></li>
+        <li class="nav-item" data-page="inventory"><a href="inventory.html"><i class="fas fa-boxes"></i><span>Inventory</span></a></li>
+        <li class="nav-item" data-page="orders"><a href="orders.html">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="currentColor"><path d="m691-150 139-138-42-42-97 95-39-39-42 43 81 81ZM240-600h480v-80H240v80ZM720-40q-83 0-141.5-58.5T520-240q0-83 58.5-141.5T720-440q83 0 141.5 58.5T920-240q0 83-58.5 141.5T720-40ZM120-80v-680q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v267q-19-9-39-15t-41-9v-243H200v562h243q5 31 15.5 59T486-86l-6 6-60-60-60 60-60-60-60 60-60-60-60 60Zm120-200h203q3-21 9-41t15-39H240v80Zm0-160h284q38-37 88.5-58.5T720-520H240v80Zm-40 242v-562 562Z"/></svg>
+          <span>Orders</span></a></li>
+        <li class="nav-item" data-page="shipment"><a href="shipping_overview.html"><i class="fas fa-truck"></i><span>Shipment</span></a></li>
+        <li class="nav-item" data-page="payment"><a href="payment.html"><i class="fas fa-credit-card"></i><span>Payment</span></a></li>
+        <li class="nav-item" data-page="inbox"><a href="inbox.html"><i class="fas fa-envelope"></i><span>AI Powered Inbox</span></a></li>
+        <li class="nav-item" data-page="settings"><a href="settings.html"><i class="fas fa-cog"></i><span>Settings</span></a></li>
+      </ul>
+    </nav>
+
+    <div class="user-profile">
+      <div class="user-avatar"><span>J</span></div>
+      <div class="user-info"><span class="user-name">John Doe</span><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="page-header">
+      <div>
+        <h1>Generate Invoice</h1>
+        <div class="header-description">Create professional invoices for customer orders</div>
+      </div>
+      <div></div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions">
+      <a class="action-btn" href="payment.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+        All Payments
+      </a>
+      <a class="action-btn" href="update_payment.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        Update Payment
+      </a>
+      <a class="action-btn" href="payment_report.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg>
+        Payment Reports
+      </a>
+      <a class="action-btn active" href="payment_invoice.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11zm-5.5-7c.83 0 1.5-.67 1.5-1.5S13.33 11 12.5 11s-1.5.67-1.5 1.5.67 1.5 1.5 1.5zm2.5 4H8.5c-.28 0-.5-.22-.5-.5s.22-.5.5-.5H15c.28 0 .5.22.5.5s-.22.5-.5.5z"/></svg>
+        Generate Invoice
+      </a>
+      <a class="action-btn" href="add_payment.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"/></svg>
+        Add New Payment
+      </a>
+    </div>
+
+    <div class="invoice-layout">
+      <!-- Left Column: Forms -->
+      <div class="form-panel">
+        <div class="section">
+          <div class="section-header"><div class="section-title"><i class="fas fa-rocket" style="margin-right:8px;"></i>Quick Templates</div></div>
+          <div class="section-content">
+            <div class="template-grid">
+              <button class="template-item" data-template="standard"><div class="template-icon"><i class="fas fa-clipboard"></i></div><div class="template-label">Standard Pallets</div></button>
+              <button class="template-item" data-template="custom"><div class="template-icon"><i class="fas fa-bullseye"></i></div><div class="template-label">Custom Orders</div></button>
+              <button class="template-item" data-template="bulk"><div class="template-icon"><i class="fas fa-boxes-stacked"></i></div><div class="template-label">Bulk Orders</div></button>
+              <button class="template-item" data-template="export"><div class="template-icon"><i class="fas fa-ship"></i></div><div class="template-label">Export Orders</div></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-header"><div class="section-title"><i class="fas fa-user" style="margin-right:8px;"></i>Customer Information</div></div>
+          <div class="section-content">
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label" for="customerSelect">Customer/Company*</label>
+                <select class="form-input" id="customerSelect">
+                  <option value="">Select Customer</option>
+                  <option value="singapore-logistics">Singapore Logistics Pte Ltd</option>
+                  <option value="malaysia-express">Malaysia Express</option>
+                  <option value="vietnam-timber">Vietnam Timber Co</option>
+                  <option value="australia-timber">Australia Timber</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contactPerson">Contact Person</label>
+                <input class="form-input" id="contactPerson" type="text" placeholder="Will auto-populate" />
+              </div>
+              <div class="form-group full">
+                <label class="form-label" for="billingAddress">Billing Address</label>
+                <textarea class="form-input" id="billingAddress" placeholder="Customer address will auto-populate"></textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="customerEmail">Email</label>
+                <input class="form-input" id="customerEmail" type="email" placeholder="customer@company.com" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="customerPhone">Phone</label>
+                <input class="form-input" id="customerPhone" type="text" placeholder="+65 xxxx xxxx" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-header"><div class="section-title"><i class="fas fa-file-invoice" style="margin-right:8px;"></i>Invoice Details</div></div>
+          <div class="section-content">
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label" for="invoiceNumber">Invoice Number*</label>
+                <input class="form-input" id="invoiceNumber" type="text" value="INV-2025-001" readonly />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="relatedOrder">Related Order</label>
+                <select class="form-input" id="relatedOrder">
+                  <option value="">Select Order...</option>
+                  <option value="ORD-2024-023">ORD-2024-023</option>
+                  <option value="ORD-2024-045">ORD-2024-045</option>
+                  <option value="ORD-2024-089">ORD-2024-089</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="invoiceDate">Invoice Date</label>
+                <input class="form-input" id="invoiceDate" type="date" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="dueDate">Due Date</label>
+                <input class="form-input" id="dueDate" type="date" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="currency">Currency</label>
+                <select class="form-input" id="currency">
+                  <option value="SGD">SGD - Singapore Dollar</option>
+                  <option value="USD">USD - US Dollar</option>
+                  <option value="MYR">MYR - Malaysian Ringgit</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="paymentTerms">Payment Terms</label>
+                <select class="form-input" id="paymentTerms">
+                  <option value="Net 30 Days">Net 30 Days</option>
+                  <option value="Net 15 Days">Net 15 Days</option>
+                  <option value="Net 60 Days">Net 60 Days</option>
+                  <option value="Due on Receipt">Due on Receipt</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-header"><div class="section-title"><i class="fas fa-box-open" style="margin-right:8px;"></i>Invoice Items</div></div>
+          <div class="section-content">
+            <div class="items-section">
+              <table class="items-table" id="itemsTable">
+                <thead>
+                  <tr>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="itemsTableBody">
+                  <tr>
+                    <td><input type="text" placeholder="Custom Wooden Pallets - Heavy Duty" /></td>
+                    <td><input type="number" value="120" min="1" class="qty-input" /></td>
+                    <td><input type="number" value="297.00" min="0" step="0.01" class="price-input" /></td>
+                    <td class="row-total">35640.00</td>
+                    <td><button class="remove-btn" type="button" aria-label="Remove"><i class="fas fa-trash"></i></button></td>
+                  </tr>
+                </tbody>
+              </table>
+              <button class="add-item-btn" id="addItemBtn"><i class="fas fa-plus"></i> Add Item</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-content" style="display:flex; gap:12px; justify-content:flex-end;">
+            <button class="btn btn-secondary" id="saveDraftBtn"><i class="fas fa-floppy-disk"></i> Save as Draft</button>
+            <button class="btn btn-warning" id="downloadBtn"><i class="fas fa-download"></i> Download Invoice</button>
+            <button class="btn btn-confirm" id="generateSendBtn"><i class="fas fa-paper-plane"></i> Generate & Send</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Preview -->
+      <div class="preview-panel">
+        <div class="invoice-preview" id="invoicePreview">
+          <div class="invoice-header">
+            <div class="invoice-title">INVOICE</div>
+            <div class="company-name">NGS Woodworking Industrial</div>
+          </div>
+
+          <div class="invoice-details">
+            <div class="detail-section">
+              <div class="detail-title">From:</div>
+              <div class="detail-line"><strong>NGS Woodworking Industrial</strong></div>
+              <div class="detail-line">Singapore Warehouse</div>
+              <div class="detail-line">Singapore</div>
+              <div class="detail-line">Email: john@ngspworks.com</div>
+              <div class="detail-line">Phone: +65 xxxx xxxx</div>
+            </div>
+            <div class="detail-section">
+              <div class="detail-title">To:</div>
+              <div class="detail-line" id="previewCustomerName">Singapore Logistics Pte Ltd</div>
+              <div class="detail-line" id="previewCustomerAddress">123 Business Park<br>Singapore 123456</div>
+              <div class="detail-line" id="previewCustomerEmail">Email: orders@sglogistics.com</div>
+              <div class="detail-line" id="previewCustomerPhone">Phone: +65 xxxx xxxx</div>
+            </div>
+          </div>
+
+          <div class="invoice-info">
+            <div class="info-grid">
+              <div class="info-item"><span class="info-label">Invoice #:</span><span class="info-value" id="previewInvoiceNumber">INV-2025-001</span></div>
+              <div class="info-item"><span class="info-label">Order #:</span><span class="info-value" id="previewOrderNumber">ORD-2024-023</span></div>
+              <div class="info-item"><span class="info-label">Date:</span><span class="info-value" id="previewInvoiceDate">June 9, 2025</span></div>
+              <div class="info-item"><span class="info-label">Terms:</span><span class="info-value" id="previewPaymentTerms">Net 30 Days</span></div>
+              <div class="info-item"><span class="info-label">Due Date:</span><span class="info-value" id="previewDueDate">July 9, 2025</span></div>
+              <div class="info-item"><span class="info-label">Currency:</span><span class="info-value" id="previewCurrency">SGD</span></div>
+            </div>
+          </div>
+
+          <table class="preview-table" id="previewItemsTable">
+            <thead>
+              <tr>
+                <th>Description</th>
+                <th>Qty</th>
+                <th>Rate</th>
+                <th class="amount-cell">Amount</th>
+              </tr>
+            </thead>
+            <tbody id="previewItemsBody">
+              <tr>
+                <td>Custom Wooden Pallets - Heavy Duty</td>
+                <td>120</td>
+                <td>297.00</td>
+                <td class="amount-cell">35640.00</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="invoice-totals">
+            <div class="total-line"><span>Sub-total:</span><span id="previewSubtotal">0.00</span></div>
+            <div class="total-line"><span>Shipping:</span><span id="previewShipping">0.00</span></div>
+            <div class="total-line final"><span>Total Amount:</span><span id="previewTotal">35640.00</span></div>
+          </div>
+        </div>
+
+        <div class="preview-actions">
+          <button class="download-btn" id="downloadPdfBtn"><i class="fas fa-download"></i> Download PDF</button>
+          <button class="generate-btn" id="generateBtn"><i class="fas fa-file-circle-plus"></i> Generate Invoice</button>
+          <button class="send-btn" id="sendBtn"><i class="fas fa-paper-plane"></i> Generate & Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="modal" aria-hidden="true">
+    <div class="modal-content" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <h2 class="modal-title">Invoice Generated Successfully</h2>
+        <button class="close" onclick="closeModal('successModal')" aria-label="Close">&times;</button>
+      </div>
+      <div style="text-align:center; padding:20px;">
+        <div style="font-size:48px; color:#059669; margin-bottom:16px;"><i class="fas fa-circle-check"></i></div>
+        <div style="margin-bottom:24px; color:#64748b; line-height:1.6;">
+          Invoice has been generated successfully!<br />
+          <strong>Invoice ID: <span id="generatedInvoiceId">INV-2025-001</span></strong>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-primary" onclick="closeModal('successModal')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/navbar.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/payment_invoice.js"></script>
+</body>
+</html>
+
+
