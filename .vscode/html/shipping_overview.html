@@ -167,6 +167,7 @@
             </tr>
           </thead>
           <tbody>
+            <!-- Table content will be dynamically populated by JavaScript -->
             <tr>
               <td>MY-2024-142</td>
               <td>Incoming</td>
@@ -191,14 +192,9 @@
     </div>
   </div>
 
+  <!-- Scripts -->
   <script src="../js/navbar.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      try { localStorage.setItem('currentPage', 'shipment'); } catch (e) {}
-    });
-  </script>
+  <script src="../js/shipping_overview.js"></script>
   <script src="../js/animations.js"></script>
 </body>
 </html>
-
-

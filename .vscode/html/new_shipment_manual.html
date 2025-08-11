@@ -127,6 +127,22 @@
       </a>
     </div>
 
+    <!-- Form Progress Indicator -->
+    <div class="form-progress">
+      <div class="progress-step active" data-step="1">
+        <div class="step-number">1</div>
+        <div class="step-label">Shipment Info</div>
+      </div>
+      <div class="progress-step" data-step="2">
+        <div class="step-number">2</div>
+        <div class="step-label">Additional Details</div>
+      </div>
+      <div class="progress-step" data-step="3">
+        <div class="step-number">3</div>
+        <div class="step-label">Contacts</div>
+      </div>
+    </div>
+
     <!-- Shipment Information Section -->
     <div class="section">
       <div class="section-header">
@@ -140,11 +156,11 @@
       <div class="section-content">
         <div class="form-grid">
           <div class="form-group">
-            <label class="form-label" for="shipmentId">Shipment ID</label>
+            <label class="form-label" for="shipmentId">Shipment ID <span class="required">*</span></label>
             <input id="shipmentId" type="text" class="form-input" placeholder="e.g., MY-2024-046" required />
           </div>
           <div class="form-group">
-            <label class="form-label" for="shipmentType">Shipment Type</label>
+            <label class="form-label" for="shipmentType">Shipment Type <span class="required">*</span></label>
             <select id="shipmentType" class="form-select" required>
               <option value="">Select Type</option>
               <option value="incoming">Incoming</option>
@@ -152,7 +168,7 @@
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label" for="origin">Origin Country</label>
+            <label class="form-label" for="origin">Origin Country <span class="required">*</span></label>
             <select id="origin" class="form-select" required>
               <option value="">Select Origin</option>
               <option value="malaysia">Malaysia</option>
@@ -163,7 +179,7 @@
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label" for="destination">Destination Country</label>
+            <label class="form-label" for="destination">Destination Country <span class="required">*</span></label>
             <select id="destination" class="form-select" required>
               <option value="">Select Destination</option>
               <option value="malaysia">Malaysia</option>
@@ -174,29 +190,29 @@
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label" for="product">Product</label>
+            <label class="form-label" for="product">Product <span class="required">*</span></label>
             <input id="product" type="text" class="form-input" placeholder="e.g., Pinewood Raw Material" required />
           </div>
           <div class="form-group">
-            <label class="form-label" for="quantity">Quantity</label>
+            <label class="form-label" for="quantity">Quantity <span class="required">*</span></label>
             <input id="quantity" type="text" class="form-input" placeholder="e.g., 30 Units" required />
           </div>
           <div class="form-group">
-            <label class="form-label" for="expectedDeparture">Expected Departure</label>
+            <label class="form-label" for="expectedDeparture">Expected Departure <span class="required">*</span></label>
             <div class="date-input">
               <input id="expectedDeparture" type="date" class="form-input" required />
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label" for="expectedArrival">Expected Arrival</label>
+            <label class="form-label" for="expectedArrival">Expected Arrival <span class="required">*</span></label>
             <div class="date-input">
               <input id="expectedArrival" type="date" class="form-input" required />
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label" for="initialStatus">Initial Status</label>
+            <label class="form-label" for="initialStatus">Initial Status <span class="required">*</span></label>
             <select id="initialStatus" class="form-select" required>
               <option value="">Select Status</option>
               <option value="processing">Processing</option>
@@ -205,7 +221,7 @@
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label" for="supplier">Supplier/Carrier</label>
+            <label class="form-label" for="supplier">Supplier/Carrier <span class="required">*</span></label>
             <input id="supplier" type="text" class="form-input" placeholder="e.g., Vietnam Logistics Co." required />
           </div>
           <div class="form-group full-width">
@@ -213,10 +229,6 @@
             <textarea id="notes" class="form-textarea" placeholder="Any additional information about this shipment..."></textarea>
           </div>
         </div>
-        <button id="createBtn" class="create-btn">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-          Create Shipment
-        </button>
       </div>
     </div>
 
@@ -308,6 +320,18 @@
         </div>
       </div>
     </div>
+
+    <!-- Action Buttons - Moved to bottom -->
+    <div class="form-actions">
+      <button type="button" class="btn btn-secondary" id="saveDraftBtn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/></svg>
+        Save Draft
+      </button>
+      <button type="button" class="btn btn-primary" id="createBtn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+        Create Shipment
+      </button>
+    </div>
   </div>
 
   <script src="../js/navbar.js"></script>
@@ -320,5 +344,3 @@
   <script src="../js/animations.js"></script>
 </body>
 </html>
-
-

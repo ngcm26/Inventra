@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shipment Details - Inventra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../stylesheet/navbar.css" />
+  <link rel="stylesheet" href="../stylesheet/shipment_details.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo-section">
+      <div class="logo">
+        <img src="../assets/INVENTRA.svg" alt="INVENTRA Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="logo-text" style="display: none;">INVENTRA</div>
+      </div>
+    </div>
+
+    <nav class="nav-menu">
+      <ul>
+        <li class="nav-item" data-page="dashboard"><a href="dashboard.html"><i class="fas fa-th-large"></i><span>Dashboard</span></a></li>
+        <li class="nav-item" data-page="sale"><a href="sale.html"><i class="fas fa-shopping-cart"></i><span>Sale</span></a></li>
+        <li class="nav-item" data-page="inventory"><a href="inventory.html"><i class="fas fa-boxes"></i><span>Inventory</span></a></li>
+        <li class="nav-item" data-page="orders"><a href="orders.html">
+          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="currentColor"><path d="m691-150 139-138-42-42-97 95-39-39-42 43 81 81ZM240-600h480v-80H240v80ZM720-40q-83 0-141.5-58.5T520-240q0-83 58.5-141.5T720-440q83 0 141.5 58.5T920-240q0 83-58.5 141.5T720-40ZM120-80v-680q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v267q-19-9-39-15t-41-9v-243H200v562h243q5 31 15.5 59T486-86l-6 6-60-60-60 60-60-60-60 60-60-60-60 60Zm120-200h203q3-21 9-41t15-39H240v80Zm0-160h284q38-37 88.5-58.5T720-520H240v80Zm-40 242v-562 562Z"/></svg>
+          <span>Orders</span></a>
+        </li>
+        <li class="nav-item" data-page="shipment"><a href="shipping_overview.html"><i class="fas fa-truck"></i><span>Shipment</span></a></li>
+        <li class="nav-item" data-page="payment"><a href="payment.html"><i class="fas fa-credit-card"></i><span>Payment</span></a></li>
+        <li class="nav-item" data-page="inbox"><a href="inbox.html"><i class="fas fa-envelope"></i><span>AI Powered Inbox</span></a></li>
+        <li class="nav-item" data-page="settings"><a href="settings.html"><i class="fas fa-cog"></i><span>Settings</span></a></li>
+      </ul>
+    </nav>
+
+    <div class="user-profile">
+      <div class="user-avatar"><span>J</span></div>
+      <div class="user-info"><span class="user-name">John Doe</span><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="page-header">
+      <div class="header-left">
+        <div class="breadcrumb">
+          <a href="shipping_overview.html" class="breadcrumb-link">
+            <i class="fas fa-arrow-left"></i>
+            Shipping Overview
+          </a>
+          <span class="breadcrumb-separator">/</span>
+          <span class="breadcrumb-current" id="shipment-id">Loading...</span>
+        </div>
+        <div>
+          <h1 id="page-title">Shipment Details</h1>
+          <div class="header-description">Complete information and tracking history</div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="update_shipment.html" class="action-btn primary" id="edit-btn">
+          <i class="fas fa-edit"></i>
+          Edit Shipment
+        </a>
+        <button class="action-btn secondary" id="print-btn">
+          <i class="fas fa-print"></i>
+          Print Details
+        </button>
+      </div>
+    </div>
+
+    <!-- Status Overview -->
+    <div class="status-overview">
+      <div class="status-card" id="status-card">
+        <div class="status-icon">
+          <i class="fas fa-truck" id="status-icon"></i>
+        </div>
+        <div class="status-content">
+          <div class="status-label">Current Status</div>
+          <div class="status-value" id="current-status">Loading...</div>
+          <div class="status-timestamp" id="last-updated">Last updated: Loading...</div>
+        </div>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-step completed">
+          <div class="step-circle"><i class="fas fa-check"></i></div>
+          <div class="step-label">Order Placed</div>
+        </div>
+        <div class="progress-step completed">
+          <div class="step-circle"><i class="fas fa-check"></i></div>
+          <div class="step-label">Processing</div>
+        </div>
+        <div class="progress-step active" id="current-step">
+          <div class="step-circle"><i class="fas fa-truck"></i></div>
+          <div class="step-label" id="current-step-label">In Transit</div>
+        </div>
+        <div class="progress-step">
+          <div class="step-circle">4</div>
+          <div class="step-label">Delivered</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="details-grid">
+      <!-- Shipment Information -->
+      <div class="detail-card">
+        <div class="card-header">
+          <div class="card-title">
+            <i class="fas fa-info-circle"></i>
+            Shipment Information
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="info-grid">
+            <div class="info-item">
+              <div class="info-label">Shipment ID</div>
+              <div class="info-value" id="detail-shipment-id">-</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Type</div>
+              <div class="info-value" id="detail-type">-</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Priority</div>
+              <div class="info-value"><span class="priority-badge" id="detail-priority">Standard</span></div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Created Date</div>
+              <div class="info-value" id="detail-created">-</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Expected Delivery</div>
+              <div class="info-value" id="detail-eta">-</div>
+            </div>
+            <div class="info-item">
+              <div class="info-label">Carrier</div>
+              <div class="info-value" id="detail-carrier">-</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Route & Location -->
+      <div class="detail-card">
+        <div class="card-header">
+          <div class="card-title">
+            <i class="fas fa-route"></i>
+            Route & Location
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="route-info">
+            <div class="route-item">
+              <div class="route-point origin">
+                <div class="route-icon"><i class="fas fa-circle"></i></div>
+                <div class="route-details">
+                  <div class="route-label">Origin</div>
+                  <div class="route-location" id="origin-location">-</div>
+                  <div class="route-time" id="origin-time">-</div>
+                </div>
+              </div>
+            </div>
+            <div class="route-line"></div>
+            <div class="route-item">
+              <div class="route-point current">
+                <div class="route-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="route-details">
+                  <div class="route-label">Current Location</div>
+                  <div class="route-location" id="current-location">-</div>
+                  <div class="route-time" id="current-time">-</div>
+                </div>
+              </div>
+            </div>
+            <div class="route-line dashed"></div>
+            <div class="route-item">
+              <div class="route-point destination">
+                <div class="route-icon"><i class="fas fa-flag"></i></div>
+                <div class="route-details">
+                  <div class="route-label">Destination</div>
+                  <div class="route-location" id="destination-location">-</div>
+                  <div class="route-time" id="destination-time">ETA</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Details -->
+      <div class="detail-card">
+        <div class="card-header">
+          <div class="card-title">
+            <i class="fas fa-box"></i>
+            Product Details
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="product-info">
+            <div class="product-header">
+              <div class="product-name" id="product-name">-</div>
+              <div class="product-quantity" id="product-quantity">-</div>
+            </div>
+            <div class="product-specs">
+              <div class="spec-item">
+                <span class="spec-label">Weight:</span>
+                <span class="spec-value" id="product-weight">-</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Dimensions:</span>
+                <span class="spec-value" id="product-dimensions">-</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-label">Value:</span>
+                <span class="spec-value" id="product-value">-</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="detail-card">
+        <div class="card-header">
+          <div class="card-title">
+            <i class="fas fa-address-book"></i>
+            Contact Information
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="contact-grid">
+            <div class="contact-section">
+              <div class="contact-title">Shipper</div>
+              <div class="contact-info">
+                <div class="contact-name" id="shipper-name">-</div>
+                <div class="contact-detail" id="shipper-phone">-</div>
+                <div class="contact-detail" id="shipper-email">-</div>
+              </div>
+            </div>
+            <div class="contact-section">
+              <div class="contact-title">Receiver</div>
+              <div class="contact-info">
+                <div class="contact-name" id="receiver-name">-</div>
+                <div class="contact-detail" id="receiver-phone">-</div>
+                <div class="contact-detail" id="receiver-email">-</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tracking History -->
+      <div class="detail-card full-width">
+        <div class="card-header">
+          <div class="card-title">
+            <i class="fas fa-history"></i>
+            Tracking History
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="timeline" id="tracking-timeline">
+            <!-- Timeline items will be populated by JavaScript -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Documents & Notes -->
+      <div class="detail-card full-width">
+        <div class="card-header">
+          <div class="card-title">
+            <i class="fas fa-file-alt"></i>
+            Documents & Notes
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="documents-section">
+            <div class="documents-grid" id="documents-list">
+              <!-- Documents will be populated by JavaScript -->
+            </div>
+            <div class="notes-section">
+              <div class="notes-title">Additional Notes</div>
+              <div class="notes-content" id="shipment-notes">No additional notes available.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/navbar.js"></script>
+  <script src="../js/shipment_details.js"></script>
+  <script src="../js/animations.js"></script>
+</body>
+</html>
