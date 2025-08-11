@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Set orders as active page for navbar
-    localStorage.setItem('currentPage', 'orders');
+    localStorage.setItem('currentPage', 'sale');
 
     // Use shared data if available
     const allOrders = Array.isArray(window.AppData?.orders) ? [...window.AppData.orders] : [];

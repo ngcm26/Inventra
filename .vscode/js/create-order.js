@@ -1,7 +1,7 @@
 // Create Order page logic
 document.addEventListener('DOMContentLoaded', () => {
   // Mark current page for navbar highlighting
-  try { localStorage.setItem('currentPage', 'orders'); } catch (e) {}
+  try { localStorage.setItem('currentPage', 'sale'); } catch (e) {}
 
   const select = (sel) => document.querySelector(sel);
   const itemsTbody = select('#items-body');
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     window.InventraAI?.addOrder?.(order);
     sessionStorage.removeItem('inventra.pendingOrder');
-    window.location.href = 'orders.html?created=' + encodeURIComponent(order.id);
+    window.location.href = 'sale.html?created=' + encodeURIComponent(order.id);
   });
 
   toInboxBtn.addEventListener('click', () => {
