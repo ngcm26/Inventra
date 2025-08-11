@@ -78,7 +78,12 @@ document.addEventListener('DOMContentLoaded', function() {
             'generate_receipt': 'shipment',
             'new_shipment_automated': 'shipment',
             'new_shipment_manual': 'shipment',
+            // Payment-related pages all highlight Payment
             'payment': 'payment',
+            'update_payment': 'payment',
+            'payment_report': 'payment',
+            'payment_invoice': 'payment',
+            'add_payment': 'payment',
             'inbox': 'inbox',
             'settings': 'settings'
         };
