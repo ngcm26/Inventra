@@ -9,31 +9,33 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Initialize global shipment data if it doesn't exist
+  const DEFAULT_OVERVIEW_SHIPMENTS = [
+    {
+      id: 'MY-2024-142',
+      type: 'Incoming',
+      route: 'Malaysia → Singapore',
+      product: 'Pinewood Raw Material',
+      quantity: '2.4 Tons',
+      eta: '15 Jun 2025',
+      status: 'In Transit',
+      statusClass: 'status-processing',
+      lastUpdated: new Date('2025-06-10').toISOString()
+    },
+    {
+      id: 'VN-2024-089',
+      type: 'Incoming',
+      route: 'Vietnam → Singapore → Malaysia',
+      product: 'Pinewood Raw Material',
+      quantity: '30 Units',
+      eta: '30 May 2025',
+      status: 'Delayed',
+      statusClass: 'status-delayed',
+      lastUpdated: new Date('2025-05-25').toISOString()
+    }
+  ];
+
   if (!window.shipmentOverviewData) {
-    window.shipmentOverviewData = [
-      {
-        id: 'MY-2024-142',
-        type: 'Incoming',
-        route: 'Malaysia → Singapore',
-        product: 'Pinewood Raw Material',
-        quantity: '2.4 Tons',
-        eta: '15 Jun 2025',
-        status: 'In Transit',
-        statusClass: 'status-processing',
-        lastUpdated: new Date('2025-06-10').toISOString()
-      },
-      {
-        id: 'VN-2024-089',
-        type: 'Incoming',
-        route: 'Vietnam → Singapore → Malaysia',
-        product: 'Pinewood Raw Material',
-        quantity: '30 Units',
-        eta: '30 May 2025',
-        status: 'Delayed',
-        statusClass: 'status-delayed',
-        lastUpdated: new Date('2025-05-25').toISOString()
-      }
-    ];
+    window.shipmentOverviewData = [...DEFAULT_OVERVIEW_SHIPMENTS];
   }
 
   const createBtn = document.getElementById('createBtn');
@@ -341,8 +343,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
       
-      // Update window data
-      window.shipmentOverviewData = existingOverviewData;
+      // Update window data and ensure defaults persist
+      const filtered = existingOverviewData.filter(s => s.id !== 'AU-12345');
+      const merged = [...filtered];
+      DEFAULT_OVERVIEW_SHIPMENTS.forEach(base => {
+        if (!merged.some(s => s.id === base.id)) merged.push(base);
+      });
+      window.shipmentOverviewData = merged;
       
       // Check if shipment already exists
       const existingIndex = window.shipmentOverviewData.findIndex(s => s.id === payload.id);

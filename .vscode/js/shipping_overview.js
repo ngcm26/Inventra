@@ -77,31 +77,33 @@ document.addEventListener('DOMContentLoaded', function() {
   console.log('- addTestShipment() - Add a test shipment');
 
   // Initialize shipment overview data
+  const DEFAULT_OVERVIEW_SHIPMENTS = [
+    {
+      id: 'MY-2024-142',
+      type: 'Incoming',
+      route: 'Malaysia → Singapore',
+      product: 'Pinewood Raw Material',
+      quantity: '2.4 Tons',
+      eta: '15 Jun 2025',
+      status: 'In Transit',
+      statusClass: 'status-processing',
+      lastUpdated: new Date('2025-06-10').toISOString()
+    },
+    {
+      id: 'VN-2024-089',
+      type: 'Incoming',
+      route: 'Vietnam → Singapore → Malaysia',
+      product: 'Pinewood Raw Material',
+      quantity: '30 Units',
+      eta: '30 May 2025',
+      status: 'Delayed',
+      statusClass: 'status-delayed',
+      lastUpdated: new Date('2025-05-25').toISOString()
+    }
+  ];
+
   if (!window.shipmentOverviewData) {
-    window.shipmentOverviewData = [
-      {
-        id: 'MY-2024-142',
-        type: 'Incoming',
-        route: 'Malaysia → Singapore',
-        product: 'Pinewood Raw Material',
-        quantity: '2.4 Tons',
-        eta: '15 Jun 2025',
-        status: 'In Transit',
-        statusClass: 'status-processing',
-        lastUpdated: new Date('2025-06-10').toISOString()
-      },
-      {
-        id: 'VN-2024-089',
-        type: 'Incoming',
-        route: 'Vietnam → Singapore → Malaysia',
-        product: 'Pinewood Raw Material',
-        quantity: '30 Units',
-        eta: '30 May 2025',
-        status: 'Delayed',
-        statusClass: 'status-delayed',
-        lastUpdated: new Date('2025-05-25').toISOString()
-      }
-    ];
+    window.shipmentOverviewData = [...DEFAULT_OVERVIEW_SHIPMENTS];
   }
 
   console.log('Initial shipment overview data:', window.shipmentOverviewData);
@@ -121,9 +123,22 @@ document.addEventListener('DOMContentLoaded', function() {
         if (savedOverview.length > 0) {
           console.log('Found saved overview data with', savedOverview.length, 'shipments:', savedOverview);
           console.log('Shipment IDs from storage:', savedOverview.map(s => s.id));
-          
-          // Completely replace the overview data with saved data
-          window.shipmentOverviewData = [...savedOverview]; // Create new array to avoid reference issues
+
+          // Remove the specific shipment AU-12345 if present and ensure defaults exist
+          const filtered = savedOverview.filter(s => s.id !== 'AU-12345');
+          let merged = [...filtered];
+          DEFAULT_OVERVIEW_SHIPMENTS.forEach(base => {
+            if (!merged.some(s => s.id === base.id)) merged.push(base);
+          });
+
+          // Update the overview data and persist
+          window.shipmentOverviewData = merged; // Create new array to avoid reference issues
+          try {
+            sessionStorage.setItem('inventra_shipment_overview', JSON.stringify(window.shipmentOverviewData));
+          } catch (e) {
+            console.log('Failed to persist cleaned overview data');
+          }
+
           console.log('Updated window.shipmentOverviewData to:', window.shipmentOverviewData);
           console.log('Final window shipment IDs:', window.shipmentOverviewData.map(s => s.id));
         } else {
@@ -135,7 +150,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const savedDetailed = JSON.parse(sessionStorage.getItem('inventra_detailed_shipments') || '{}');
         if (Object.keys(savedDetailed).length > 0) {
           window.detailedShipmentData = savedDetailed;
-          console.log('Loaded detailed shipment data:', Object.keys(savedDetailed));
+          // Remove AU-12345 detailed record if present and persist
+          if (window.detailedShipmentData['AU-12345']) {
+            delete window.detailedShipmentData['AU-12345'];
+            try {
+              sessionStorage.setItem('inventra_detailed_shipments', JSON.stringify(window.detailedShipmentData));
+            } catch (e) {
+              console.log('Failed to persist cleaned detailed shipment data');
+            }
+          }
+          console.log('Loaded detailed shipment data:', Object.keys(window.detailedShipmentData));
         }
         
         if (Object.keys(savedUpdates).length > 0) {

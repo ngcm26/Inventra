@@ -1,0 +1,53 @@
+/* Page-specific styles for Delete PO */
+
+:root {
+  --danger: #EF4444;
+  --danger-600: #DC2626;
+  --danger-ring: rgba(239, 68, 68, 0.2);
+}
+
+.danger-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991B1B;
+  padding: 12px 14px;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+
+.danger-banner i { color: var(--danger-600); margin-top: 2px; }
+
+.btn-danger {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: #fff;
+  box-shadow: 0 6px 14px var(--danger-ring);
+}
+
+.btn-danger:hover {
+  background: var(--danger-600);
+  border-color: var(--danger-600);
+}
+
+/* Tighten spacing inside the delete card */
+.card-bd .field + .field { margin-top: 10px; }
+
+.row-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+/* Make the PO id read-only input stand out a bit */
+#delPoId[readonly] {
+  background: #f8fafc;
+  color: #334155;
+  font-weight: 600;
+}
+
+

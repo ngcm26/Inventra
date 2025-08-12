@@ -1,54 +1,135 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Inventra • Stock Orders</title><link rel="stylesheet" href="styles.css"/></head>
-<body><div class="app">
-
-  <aside class="sidebar">
-    <div class="brand"><img src="assets/logo.svg" alt="logo"/><span class="brand-name">INVENTRA</span></div>
-    <nav class="nav"><a href="index.html" class=""><span>🏠</span>Dashboard</a><a href="#" class=""><span>🛒</span>Sale</a><a href="index.html" class=""><span>📦</span>Inventory</a><a href="stock-orders.html" class="active"><span>📄</span>Stock Orders</a><a href="#" class=""><span>🚚</span>Shipment</a><a href="#" class=""><span>💳</span>Payment</a><a href="#" class=""><span>📨</span>AI Powered Inbox</a><a href="#" class=""><span>⚙️</span>Settings</a></nav>
-    <div class="bottom">
-      <div class="user"><span class="avatar"></span><div><div style="font-weight:700">John Doe</div><div style="font-size:12px;color:#94A3B8">john@company.com</div></div></div>
-      <div>▾</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>INVENTRA - Stock Orders</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../stylesheet/navbar.css" />
+  <link rel="stylesheet" href="../stylesheet/orders.css" />
+  <style>
+    /* Minor tweaks for PO table spacing */
+    .supplier-sub { color:#64748b; font-size:12px; }
+  </style>
+  </head>
+<body>
+  <!-- Sidebar Navigation -->
+  <div class="sidebar">
+    <div class="logo-section">
+      <div class="logo">
+        <img src="../assets/INVENTRA.svg" alt="INVENTRA Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="logo-text" style="display: none;">INVENTRA</div>
+      </div>
     </div>
-  </aside>
 
-<main class="content">
-<h1 style="margin:0 0 14px 0">Purchase Orders</h1>
-<div class="form" style="margin-bottom:16px">
-  <div class="row"><div>Search Raw Materials:</div><div><input class="input" placeholder="Search product, supplier, order"/></div></div>
-  <div class="row">
-    <div>Actions</div>
-    <div style="display:flex;gap:8px">
-      <a class="btn small" href="stock-orders.html">Create Purchase Order</a>
-      <a class="btn small ghost" href="po-delete.html">Delete Purchase Order</a>
-      <a class="btn small ghost" href="po-view.html">View Purchase Order</a>
+    <nav class="nav-menu">
+      <ul>
+        <li class="nav-item" data-page="dashboard">
+          <a href="dashboard.html"><i class="fas fa-th-large"></i><span>Dashboard</span></a>
+        </li>
+        <li class="nav-item" data-page="sale">
+          <a href="sale.html"><i class="fas fa-shopping-cart"></i><span>Sale</span></a>
+        </li>
+        <li class="nav-item" data-page="inventory">
+          <a href="inventory.html"><i class="fas fa-boxes"></i><span>Inventory</span></a>
+        </li>
+        <li class="nav-item active" data-page="orders">
+          <a href="stock-orders.html">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m691-150 139-138-42-42-97 95-39-39-42 43 81 81ZM240-600h480v-80H240v80ZM720-40q-83 0-141.5-58.5T520-240q0-83 58.5-141.5T720-440q83 0 141.5 58.5T920-240q0 83-58.5 141.5T720-40ZM120-80v-680q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v267q-19-9-39-15t-41-9v-243H200v562h243q5 31 15.5 59T486-86l-6 6-60-60-60 60-60-60-60 60-60-60-60 60Zm120-200h203q3-21 9-41t15-39H240v80Zm0-160h284q38-37 88.5-58.5T720-520H240v80Zm-40 242v-562 562Z"/></svg>
+            <span>Orders</span>
+          </a>
+        </li>
+        <li class="nav-item" data-page="shipment">
+          <a href="shipping_overview.html"><i class="fas fa-truck"></i><span>Shipment</span></a>
+        </li>
+        <li class="nav-item" data-page="payment">
+          <a href="payment.html"><i class="fas fa-credit-card"></i><span>Payment</span></a>
+        </li>
+        <li class="nav-item" data-page="inbox">
+          <a href="inbox.html"><i class="fas fa-envelope"></i><span>AI Powered Inbox</span></a>
+        </li>
+        <li class="nav-item" data-page="settings">
+          <a href="settings.html"><i class="fas fa-cog"></i><span>Settings</span></a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="user-profile">
+      <div class="user-avatar"><span>J</span></div>
+      <div class="user-info"><span class="user-name">John Doe</span><i class="fas fa-chevron-down"></i></div>
     </div>
   </div>
-</div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-  <div class="form">
-    <h3 style="margin-top:0">Current Orders</h3>
-    <table>
-      <thead><tr><th>Item</th><th>Qty</th><th>Supplier</th><th>Remove</th></tr></thead>
-      <tbody><tr><td>Steel</td><td>150</td><td>ABC Metals</td><td><button class="btn ghost small">Remove</button></td></tr></tbody>
-    </table>
-    <div class="helper" style="margin-top:8px">Order Calculator</div>
-    <div class="row"><div>Customer Requirement</div><div>XXX</div></div>
-    <div class="row"><div>Current Inventory</div><div>XXX</div></div>
-    <div class="row"><div>Material Needed</div><div>XXX</div></div>
-    <button class="btn small" style="margin-top:8px">🛒 Submit Order</button>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="page-header">
+      <div>
+        <h1>Purchase Orders</h1>
+        <div class="header-description">Manage and track raw material purchases</div>
+      </div>
+      <div class="toolbar">
+        <a class="btn btn-primary" href="#"><i class="fa-solid fa-plus"></i> New Purchase Order</a>
+        <a class="btn btn-ghost" href="inbox.html"><i class="fa-solid fa-inbox"></i> AI Inbox</a>
+      </div>
+    </div>
+
+    <!-- Insights -->
+    <div class="insights-grid">
+      <div class="insight-card">
+        <div class="insight-label">Open POs</div>
+        <div class="insight-value" id="po-open">3</div>
+        <div class="insight-sub">Awaiting delivery</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-label">Items Due This Week</div>
+        <div class="insight-value" id="po-due">1</div>
+        <div class="insight-sub">ETA within 7 days</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-label">Avg Lead Time</div>
+        <div class="insight-value" id="po-lead">9d</div>
+        <div class="insight-sub">Last 10 POs</div>
+      </div>
+      <div class="insight-card">
+        <div class="insight-label">Delayed</div>
+        <div class="insight-value" id="po-delayed">1</div>
+        <div class="insight-sub">Flagged in inbox</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title"><strong>PO List</strong></div>
+        <div class="search-container">
+          <input id="search-orders" placeholder="Search POs..." class="search-input" />
+          <i class="fas fa-search search-icon"></i>
+        </div>
+      </div>
+      <div class="table-container">
+        <table class="orders-table">
+          <thead>
+            <tr>
+              <th>PO ID</th>
+              <th>Product</th>
+              <th>Supplier</th>
+              <th>Qty</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Rows injected by stock-orders.js -->
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
-  <div class="form">
-    <h3 style="margin-top:0">Order Form</h3>
-    <div class="row"><div>Material Name</div><div><input class="input"/></div></div>
-    <div class="row"><div>Serial Code</div><div><input class="input"/></div></div>
-    <div class="row"><div>Quantity</div><div><input type="number" class="input"/></div></div>
-    <div class="row"><div>Unit</div><div><select class="input"><option>Kg</option><option>Box</option><option>Unit</option></select></div></div>
-    <div class="row"><div>Supplier Date</div><div><input type="date" class="input"/></div></div>
-    <div class="row"><div>Shipping Mode</div><div><input class="input" placeholder="Air / Sea / Land"/></div></div>
-    <div class="row"><div>Notes</div><div><textarea rows="3" class="input"></textarea></div></div>
-    <div class="actions"><button class="btn small">Save</button><button class="btn ghost small">Reset</button></div>
-  </div>
-</div>
-</main></div>
-<script src="app.js"></script></body></html>
+
+  <script src="../js/navbar.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/stock-orders.js"></script>
+</body>
+</html>

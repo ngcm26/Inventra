@@ -1,28 +1,243 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Inventra • View Purchase Order</title><link rel="stylesheet" href="styles.css"/></head>
-<body><div class="app">
-
-  <aside class="sidebar">
-    <div class="brand"><img src="assets/logo.svg" alt="logo"/><span class="brand-name">INVENTRA</span></div>
-    <nav class="nav"><a href="index.html" class=""><span>🏠</span>Dashboard</a><a href="#" class=""><span>🛒</span>Sale</a><a href="index.html" class=""><span>📦</span>Inventory</a><a href="stock-orders.html" class="active"><span>📄</span>Stock Orders</a><a href="#" class=""><span>🚚</span>Shipment</a><a href="#" class=""><span>💳</span>Payment</a><a href="#" class=""><span>📨</span>AI Powered Inbox</a><a href="#" class=""><span>⚙️</span>Settings</a></nav>
-    <div class="bottom">
-      <div class="user"><span class="avatar"></span><div><div style="font-weight:700">John Doe</div><div style="font-size:12px;color:#94A3B8">john@company.com</div></div></div>
-      <div>▾</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>INVENTRA - View Purchase Order</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../stylesheet/navbar.css" />
+  <link rel="stylesheet" href="../stylesheet/create-order.css" />
+</head>
+<body>
+  <!-- Sidebar Navigation -->
+  <div class="sidebar">
+    <div class="logo-section">
+      <div class="logo">
+        <img src="../assets/INVENTRA.svg" alt="INVENTRA Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="logo-text" style="display: none;">INVENTRA</div>
+      </div>
     </div>
-  </aside>
 
-<main class="content">
-<h1 style="margin:0 0 14px 0">View Purchase Order</h1>
-<div class="form" style="max-width:780px">
-  <div class="row"><div>Product</div><div><input class="input" value="Skid Pallets"/></div></div>
-  <div class="row"><div>Serial Code</div><div><input class="input" value="7537"/></div></div>
-  <div class="row"><div>Amount</div><div><input class="input" value="$4,350"/></div></div>
-  <div class="row"><div>Quantity</div><div><input class="input" value="43"/></div></div>
-  <div class="row"><div>Order Date</div><div><input class="input" value="11/12/2022"/></div></div>
-  <div class="row"><div>Expected Delivery</div><div><input class="input" value="18/12/2022"/></div></div>
-  <div class="row"><div>Status</div><div><input class="input" value="Delayed" style="color:#EF4444"/></div></div>
-  <div class="actions"><a class="btn ghost" href="stock-orders.html">Close</a></div>
-</div>
-</main></div>
-<script src="app.js"></script></body></html>
+    <nav class="nav-menu">
+      <ul>
+        <li class="nav-item" data-page="dashboard">
+          <a href="dashboard.html">
+            <i class="fas fa-th-large"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item" data-page="sale">
+          <a href="sale.html">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Sale</span>
+          </a>
+        </li>
+        <li class="nav-item" data-page="inventory">
+          <a href="inventory.html">
+            <i class="fas fa-boxes"></i>
+            <span>Inventory</span>
+          </a>
+        </li>
+        <li class="nav-item active" data-page="orders">
+          <a href="stock-orders.html">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m691-150 139-138-42-42-97 95-39-39-42 43 81 81ZM240-600h480v-80H240v80ZM720-40q-83 0-141.5-58.5T520-240q0-83 58.5-141.5T720-440q83 0 141.5 58.5T920-240q0 83-58.5 141.5T720-40ZM120-80v-680q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v267q-19-9-39-15t-41-9v-243H200v562h243q5 31 15.5 59T486-86l-6 6-60-60-60 60-60-60-60 60-60-60-60 60Zm120-200h203q3-21 9-41t15-39H240v80Zm0-160h284q38-37 88.5-58.5T720-520H240v80Zm-40 242v-562 562Z"/></svg>
+            <span>Orders</span>
+          </a>
+        </li>
+        <li class="nav-item" data-page="shipment">
+          <a href="shipping_overview.html">
+            <i class="fas fa-truck"></i>
+            <span>Shipment</span>
+          </a>
+        </li>
+        <li class="nav-item" data-page="payment">
+          <a href="payment.html">
+            <i class="fas fa-credit-card"></i>
+            <span>Payment</span>
+          </a>
+        </li>
+        <li class="nav-item" data-page="inbox">
+          <a href="inbox.html">
+            <i class="fas fa-envelope"></i>
+            <span>AI Powered Inbox</span>
+          </a>
+        </li>
+        <li class="nav-item" data-page="settings">
+          <a href="settings.html">
+            <i class="fas fa-cog"></i>
+            <span>Settings</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="user-profile">
+      <div class="user-avatar"><span>J</span></div>
+      <div class="user-info"><span class="user-name">John Doe</span><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="toolbar">
+      <div class="title">
+        <div>
+          <h1>View Purchase Order</h1>
+          <div class="header-description">Review supplier PO and convert to a customer order</div>
+        </div>
+      </div>
+      <div>
+        <a class="btn btn-ghost" href="stock-orders.html"><i class="fa-solid fa-arrow-left"></i> Back</a>
+        <button id="create-order-from-po" class="btn btn-primary"><i class="fa-solid fa-arrow-turn-down"></i> Create Order</button>
+      </div>
+    </div>
+
+    <div class="page" id="poPage" data-po-id="">
+      <!-- Left Rail: Summary and Supplier Cards -->
+      <aside class="left-rail">
+        <div class="card">
+          <div class="card-hd">PO Summary</div>
+          <div class="card-bd">
+            <div class="field">
+              <label>PO ID</label>
+              <div id="poIdLabel" style="font-weight:700;color:var(--ink)">PO-DRAFT</div>
+            </div>
+            <div class="field" style="margin-top:6px">
+              <label>Created</label>
+              <div id="poCreated" style="color:var(--muted)">—</div>
+            </div>
+            <div class="field" style="margin-top:6px">
+              <label>Current Status</label>
+              <div><span id="poStatusPill" class="tag">Pending</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <div class="card-hd">Supplier</div>
+          <div class="card-bd" style="color:#334155">
+            <div style="font-weight:700;color:var(--ink)" id="supplierName">Malay Timber Logistics</div>
+            <div style="font-size:13px;color:#64748b;margin-top:4px" id="supplierContact">Attn: Aisha Rahman</div>
+            <div style="font-size:13px;color:#64748b;margin-top:4px" id="supplierEmail">logistics@malaytimber.com</div>
+            <div style="font-size:13px;color:#64748b;margin-top:4px" id="supplierPhone">+60 3-1234 5678</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:14px">
+          <div class="card-hd">Quick Actions</div>
+          <div class="card-bd">
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <a id="delete-po-link" class="btn btn-ghost" href="po-delete.html"><i class="fa-solid fa-trash"></i> Delete Purchase</a>
+              <button class="btn btn-ghost" onclick="window.print()"><i class="fa-solid fa-print"></i> Print</button>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main Section: PO Details -->
+      <div class="section">
+        <div class="form" style="max-width: 920px;">
+          <div class="grid-2">
+            <div class="field">
+              <label>Product</label>
+              <input id="poProduct" placeholder="e.g., Skid Pallets" value="Skid Pallets" />
+            </div>
+            <div class="field">
+              <label>Serial Code</label>
+              <input id="poSku" placeholder="e.g., 7537" value="7537" />
+            </div>
+          </div>
+
+          <div class="grid-3">
+            <div class="field">
+              <label>Amount (Total)</label>
+              <input id="poAmount" placeholder="$0.00" value="$4,350" />
+            </div>
+            <div class="field">
+              <label>Quantity</label>
+              <input id="poQty" type="number" min="1" placeholder="0" value="43" />
+            </div>
+            <div class="field">
+              <label>Status</label>
+              <input id="poStatus" placeholder="e.g., Delayed" value="Delayed" />
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field">
+              <label>Order Date</label>
+              <input id="poOrderDate" type="date" />
+            </div>
+            <div class="field">
+              <label>Expected Delivery</label>
+              <input id="poExpected" type="date" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Line Items -->
+        <div class="form" style="max-width: 920px; margin-top: 16px;">
+          <div class="field" style="margin-bottom:8px">
+            <label>Line Items</label>
+          </div>
+          <div class="items">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:40%">Item</th>
+                  <th>SKU</th>
+                  <th style="text-align:right">Qty</th>
+                  <th style="text-align:right">Unit Price</th>
+                  <th style="text-align:right">Line Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td id="itemNameCell">Skid Pallets</td>
+                  <td id="skuCell">7537</td>
+                  <td id="qtyCell" style="text-align:right">43</td>
+                  <td id="unitPriceCell" style="text-align:right">—</td>
+                  <td id="lineTotalCell" style="text-align:right">—</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="totals">
+            <div>Subtotal: <strong id="subtotalValue">—</strong></div>
+            <div>Tax: <strong id="taxValue">$0.00</strong></div>
+            <div>Shipping: <strong id="shippingValue">$0.00</strong></div>
+            <div>Total: <strong id="grandTotalValue">—</strong></div>
+          </div>
+        </div>
+
+        <!-- Notes and Activity -->
+        <div class="form" style="max-width: 920px; margin-top: 16px;">
+          <div class="grid-2">
+            <div class="field">
+              <label>Internal Notes</label>
+              <textarea id="poNotes" placeholder="Add any relevant notes for procurement or logistics..."></textarea>
+            </div>
+            <div class="field">
+              <label>Recent Activity</label>
+              <div class="items" style="border:none">
+                <div style="padding:6px 0;color:#334155;font-size:14px">• Status updated to <span class="tag">Delayed</span> due to port congestion</div>
+                <div style="padding:6px 0;color:#334155;font-size:14px">• Expected delivery date adjusted</div>
+                <div style="padding:6px 0;color:#334155;font-size:14px">• Created PO from supplier quote</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="../js/navbar.js"></script>
+  <script src="../js/animations.js"></script>
+  <script src="../js/po-view.js"></script>
+</body>
+</html>
